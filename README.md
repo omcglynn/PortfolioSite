@@ -4,7 +4,7 @@
 This project is a portfolio website that authentically simulates the Windows XP desktop environment. It features draggable and resizable windows, desktop icons, a taskbar, and a contact form—all styled to match the classic XP look and feel. The site is fully interactive, persistent, and mobile responsive, providing a nostalgic yet modern showcase for your work and contact information.
 
 ## Purpose
-The purpose of this project is to provide a unique, memorable, and interactive way to present your professional background, projects, and contact information. By emulating the Windows XP desktop, it offers visitors a playful and engaging experience that stands out from traditional portfolio sites.
+The purpose of this project is to provide a unique, memorable, and interactive way to present my professional background, projects, and contact information. By emulating the Windows XP desktop, I tried to offer visitors a playful and engaging experience that stands out from traditional portfolio sites.
 
 ## Technologies Used
 - **HTML5**: Semantic structure and content
