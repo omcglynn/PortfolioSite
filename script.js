@@ -589,15 +589,18 @@ class WindowsXPSimulator {
 
     doResize(e) {
         if (!this.isResizing || !this.currentResizeWindow) return;
-
-        const deltaX = e.clientX - this.resizeStartMouse.x;
-        const deltaY = e.clientY - this.resizeStartMouse.y;
-
-        const newWidth = Math.max(400, this.resizeStartSize.width + deltaX);
-        const newHeight = Math.max(300, this.resizeStartSize.height + deltaY);
-
-        this.currentResizeWindow.style.width = newWidth + 'px';
-        this.currentResizeWindow.style.height = newHeight + 'px';
+        const windowElem = this.currentResizeWindow;
+        const dx = e.clientX - this.resizeStartMouse.x;
+        const dy = e.clientY - this.resizeStartMouse.y;
+        let newWidth = this.resizeStartSize.width + dx;
+        let newHeight = this.resizeStartSize.height + dy;
+        // Clamp to viewport size minus margin and taskbar
+        const margin = 20;
+        const taskbarHeight = 20    ;
+        newWidth = Math.max(200, Math.min(newWidth, window.innerWidth - margin));
+        newHeight = Math.max(100, Math.min(newHeight, window.innerHeight - margin - taskbarHeight));
+        windowElem.style.width = newWidth + 'px';
+        windowElem.style.height = newHeight + 'px';
     }
 
     endResize() {
