@@ -1,0 +1,9 @@
+WINDOW TITLE BAR ICONS NEEDED (16x16 pixels):
+============================================
+
+1. window-about.png - Small user icon for About window title bar
+2. window-project.png - Small project icon for project windows
+3. window-contact.png - Small email icon for contact window
+4. start-button.png - Windows logo for start button (24x24)
+
+These small icons appear in window title bars and the start button. 

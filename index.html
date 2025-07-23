@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Interactive Desktop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation removed -->
+
+    <!-- Debug Info -->
+    <div id="debug-info" style="position: fixed; top: 10px; right: 10px; background: rgba(0,0,0,0.8); color: white; padding: 10px; font-size: 12px; z-index: 9999;">
+        <div>Background Status: <span id="bg-status">Loading...</span></div>
+        <div>Assets Path: ./assets/images/</div>
+    </div>
+
+    <!-- Windows XP Desktop -->
+    <main class="desktop" id="desktop">
+        <!-- Desktop Icons -->
+        
+        <!-- About Me Icon -->
+        <div class="desktop-icon" data-window="about" style="top: 20px; left: 20px;">
+            <div class="icon-image"></div>
+            <div class="icon-label">About Owen</div>
+        </div>
+        
+        <!-- Project Icons -->
+        <div class="desktop-icon" data-window="project1" style="top: 120px; left: 20px;">
+            <div class="icon-image" style="background-image: url('./assets/images/icons/betabreak-ico.png');"></div>
+            <div class="icon-label">BetaBreak</div>
+        </div>
+        
+        <div class="desktop-icon" data-window="project2" style="top: 220px; left: 20px;">
+            <div class="icon-image" style="background-image: url('./assets/images/icons/storeme-ico.png');"></div>
+            <div class="icon-label">StorMe</div>
+        </div>
+        
+        <div class="desktop-icon" data-window="project3" style="top: 320px; left: 20px;">
+            <div class="icon-image" style="background-image: url('./assets/images/icons/ai-ico.png');"></div>
+            <div class="icon-label">Neural Text Gen</div>
+        </div>
+        
+        <!-- Contact Icon -->
+        <div class="desktop-icon" data-window="contact" style="top: 420px; left: 20px;">
+            <div class="icon-image"></div>
+            <div class="icon-label">Contact Me</div>
+        </div>
+        
+        <!-- Additional XP Desktop Icons -->
+        <div class="desktop-icon desktop-shortcut" style="top: 20px; left: 120px;">
+            <div class="icon-image" style="background-image: url('./assets/images/icons/my-computer.png');"></div>
+            <div class="icon-label">My Computer</div>
+        </div>
+        
+        <div class="desktop-icon desktop-shortcut" style="top: 120px; left: 120px;">
+            <div class="icon-image" style="background-image: url('./assets/images/icons/my-documents.png');"></div>
+            <div class="icon-label">My Documents</div>
+        </div>
+        
+        <div class="desktop-icon desktop-shortcut" style="top: 220px; left: 120px;">
+            <div class="icon-image" style="background-image: url('./assets/images/icons/network-places.png');"></div>
+            <div class="icon-label">My Network Places</div>
+        </div>
+        
+        <div class="desktop-icon desktop-shortcut" style="top: 320px; left: 120px;">
+            <div class="icon-image" style="background-image: url('./assets/images/icons/recycle-bin.png');"></div>
+            <div class="icon-label">Recycle Bin</div>
+        </div>
+
+        <!-- XP Windows (initially hidden) -->
+        <div class="xp-window" id="window-about">
+            <div class="xp-title-bar">
+                <div class="xp-window-title">
+                    <div class="xp-window-icon"></div>
+                    <span>About Owen McGlynn</span>
+                </div>
+                <div class="xp-window-controls">
+                    <div class="xp-control-btn xp-minimize-btn">_</div>
+                    <div class="xp-control-btn xp-maximize-btn">□</div>
+                    <div class="xp-control-btn xp-close-btn">×</div>
+                </div>
+            </div>
+            <div class="xp-window-content">
+                <h2>About Owen McGlynn</h2>
+                <p>I'm a Computer Science and Computational Mathematics student at UMass Amherst (graduating May 2027) with a passion for building innovative solutions. I specialize in full-stack development, data analysis, and AI/ML applications.</p>
+                
+                <h3>Education & Certifications</h3>
+                <p>Currently pursuing B.S. in Computer Science and Computational Mathematics with a Minor in Japanese at University of Massachusetts - Amherst (4.0 Major GPA, 3.99 Overall). Certified in CompTIA Security+ and CompTIA A+.</p>
+                
+                <h3>Professional Experience</h3>
+                <p>IT Intern at Honeywell FM&T (DOE Q-Level Clearance) where I designed automated data analysis tools and server management systems. Previously interned at Helzberg Diamonds building full-stack CCPA compliance applications.</p>
+                
+                <h3>Skills & Technologies</h3>
+                <div class="xp-tech-stack">
+                    <span class="xp-tech-item">Python</span>
+                    <span class="xp-tech-item">Java</span>
+                    <span class="xp-tech-item">JavaScript/TypeScript</span>
+                    <span class="xp-tech-item">React</span>
+                    <span class="xp-tech-item">Node.js</span>
+                    <span class="xp-tech-item">PostgreSQL</span>
+                    <span class="xp-tech-item">Docker</span>
+                    <span class="xp-tech-item">PyTorch</span>
+                    <span class="xp-tech-item">Flask</span>
+                    <span class="xp-tech-item">Snowflake</span>
+                    <span class="xp-tech-item">Linux</span>
+                    <span class="xp-tech-item">Git</span>
+                </div>
+                
+                <h3>Leadership</h3>
+                <p>Active in Cybersecurity Club, AI Club, and Rock Climbing Club (Setter/Organizer). Former Chef and Shift Lead managing teams of 5-8 staff.</p>
+                
+                <h3>Contact Information</h3>
+                <a href="https://github.com/omcglynn" target="_blank" class="xp-button">GitHub Profile</a>
+                <a href="https://linkedin.com/in/owen-mcglynn-1063ba257" target="_blank" class="xp-button">LinkedIn</a>
+                <a href="mailto:oemcgl@gmail.com" class="xp-button">Send Email</a>
+                <a href="./resume.pdf" target="_blank" class="xp-button">Download Resume</a>
+            </div>
+            <div class="xp-resize-handle"></div>
+        </div>
+        
+        <!-- Project 1 Window -->
+        <div class="xp-window" id="window-project1">
+            <div class="xp-title-bar">
+                <div class="xp-window-title">
+                    <div class="xp-window-icon"></div>
+                    <span>BetaBreak - Climbing Route Optimizer</span>
+                </div>
+                <div class="xp-window-controls">
+                    <div class="xp-control-btn xp-minimize-btn">_</div>
+                    <div class="xp-control-btn xp-maximize-btn">□</div>
+                    <div class="xp-control-btn xp-close-btn">×</div>
+                </div>
+            </div>
+            <div class="xp-window-content">
+                <h2>BetaBreak - Climbing Route Optimizer</h2>
+                <p>An advanced climbing route optimization web application that uses A* pathfinding algorithms and biomechanical models to deliver real-time, personalized climbing recommendations.</p>
+                
+                <h3>Key Features</h3>
+                <p>• Advanced A* pathfinding algorithm with biomechanical modeling<br>
+                • Real-time personalized climbing recommendations<br>
+                • Interactive JavaScript frontend with computer vision backend<br>
+                • ~95% hold-placement accuracy using computer vision<br>
+                • Full-stack web application architecture</p>
+                
+                <h3>Tech Stack</h3>
+                <div class="xp-tech-stack">
+                    <span class="xp-tech-item">Flask</span>
+                    <span class="xp-tech-item">Python</span>
+                    <span class="xp-tech-item">JavaScript</span>
+                    <span class="xp-tech-item">CSS3</span>
+                    <span class="xp-tech-item">Computer Vision</span>
+                    <span class="xp-tech-item">A* Algorithm</span>
+                </div>
+                
+                <a href="https://github.com/omcglynn/betabreak" target="_blank" class="xp-button">View Code</a>
+            </div>
+            <div class="xp-resize-handle"></div>
+        </div>
+
+        <!-- Project 2 Window -->
+        <div class="xp-window" id="window-project2">
+            <div class="xp-title-bar">
+                <div class="xp-window-title">
+                    <div class="xp-window-icon"></div>
+                    <span>StorMe - Student Storage Platform</span>
+                </div>
+                <div class="xp-window-controls">
+                    <div class="xp-control-btn xp-minimize-btn">_</div>
+                    <div class="xp-control-btn xp-maximize-btn">□</div>
+                    <div class="xp-control-btn xp-close-btn">×</div>
+                </div>
+            </div>
+            <div class="xp-window-content">
+                <h2>StorMe - Student Storage Platform</h2>
+                <p>A comprehensive web platform that enables students to rent local storage spaces during academic breaks. Built with modern full-stack technologies for scalability and security.</p>
+                
+                <h3>Key Features</h3>
+                <p>• Web platform for students to find and rent storage spaces<br>
+                • Secure backend API with robust authentication<br>
+                • Advanced search functionality with location filtering<br>
+                • Personalized user experiences and recommendations<br>
+                • Docker containerization for easy deployment</p>
+                
+                <h3>Tech Stack</h3>
+                <div class="xp-tech-stack">
+                    <span class="xp-tech-item">Node.js</span>
+                    <span class="xp-tech-item">React</span>
+                    <span class="xp-tech-item">Docker</span>
+                    <span class="xp-tech-item">PostgreSQL</span>
+                    <span class="xp-tech-item">TypeScript</span>
+                </div>
+                
+                <a href="https://github.com/omcglynn/storme" target="_blank" class="xp-button">View Code</a>
+            </div>
+            <div class="xp-resize-handle"></div>
+        </div>
+
+        <!-- Project 3 Window -->
+        <div class="xp-window" id="window-project3">
+            <div class="xp-title-bar">
+                <div class="xp-window-title">
+                    <div class="xp-window-icon"></div>
+                    <span>Neural Text Generation RNN</span>
+                </div>
+                <div class="xp-window-controls">
+                    <div class="xp-control-btn xp-minimize-btn">_</div>
+                    <div class="xp-control-btn xp-maximize-btn">□</div>
+                    <div class="xp-control-btn xp-close-btn">×</div>
+                </div>
+            </div>
+            <div class="xp-window-content">
+                <h2>Neural Text Generation with Character-Level RNN</h2>
+                <p>A deep learning project implementing a character-level Recurrent Neural Network for creative text generation, featuring manual hidden state propagation and advanced sampling techniques.</p>
+                
+                <h3>Key Features</h3>
+                <p>• Character-level RNN with manual hidden state propagation<br>
+                • Custom embedding layers for character representation<br>
+                • Sliding-window dataset pipeline for efficient training<br>
+                • Temperature-based sampling for creative text generation<br>
+                • Hyperparameter tuning for coherent English generation from literary texts</p>
+                
+                <h3>Tech Stack</h3>
+                <div class="xp-tech-stack">
+                    <span class="xp-tech-item">PyTorch</span>
+                    <span class="xp-tech-item">NumPy</span>
+                    <span class="xp-tech-item">Deep Learning</span>
+                    <span class="xp-tech-item">Matplotlib</span>
+                    <span class="xp-tech-item">NLP</span>
+                    <span class="xp-tech-item">Python</span>
+                </div>
+                
+                <a href="https://github.com/omcglynn/neural-text-generation" target="_blank" class="xp-button">View Code</a>
+            </div>
+            <div class="xp-resize-handle"></div>
+        </div>
+
+
+
+        <!-- Contact Window -->
+        <div class="xp-window" id="window-contact">
+            <div class="xp-title-bar">
+                <div class="xp-window-title">
+                    <div class="xp-window-icon"></div>
+                    <span>Contact Owen McGlynn</span>
+                </div>
+                <div class="xp-window-controls">
+                    <div class="xp-control-btn xp-minimize-btn">_</div>
+                    <div class="xp-control-btn xp-maximize-btn">□</div>
+                    <div class="xp-control-btn xp-close-btn">×</div>
+                </div>
+            </div>
+            <div class="xp-window-content">
+                <h2>Get In Touch</h2>
+                <p>I'd love to hear from you! Feel free to reach out about projects, collaborations, or just to say hello.</p>
+                
+                <form class="xp-contact-form" id="contact-form">
+                    <div class="xp-form-group">
+                        <label for="contact-name">Name:</label>
+                        <input type="text" id="contact-name" name="name" required class="xp-input">
+                    </div>
+                    
+                    <div class="xp-form-group">
+                        <label for="contact-email">Email:</label>
+                        <input type="email" id="contact-email" name="email" required class="xp-input">
+                    </div>
+                    
+                    <div class="xp-form-group">
+                        <label for="contact-subject">Subject:</label>
+                        <input type="text" id="contact-subject" name="subject" required class="xp-input">
+                    </div>
+                    
+                    <div class="xp-form-group">
+                        <label for="contact-message">Message:</label>
+                        <textarea id="contact-message" name="message" required class="xp-textarea" rows="6"></textarea>
+                    </div>
+                    
+                    <div class="xp-form-buttons">
+                        <button type="submit" class="xp-button">Send Message</button>
+                        <button type="reset" class="xp-button">Clear Form</button>
+                    </div>
+                </form>
+                
+                <h3>Other Ways to Reach Me</h3>
+                <a href="mailto:oemcgl@gmail.com" class="xp-button">Direct Email</a>
+                <a href="https://linkedin.com/in/owen-mcglynn-1063ba257" target="_blank" class="xp-button">LinkedIn</a>
+                <a href="https://github.com/omcglynn" target="_blank" class="xp-button">GitHub</a>
+            </div>
+            <div class="xp-resize-handle"></div>
+        </div>
+
+    </main>
+    
+    <!-- Windows XP Taskbar -->
+    <div class="xp-taskbar">
+        <div class="xp-start-button">start</div>
+        <div class="xp-taskbar-items" id="taskbar-items">
+            <!-- Taskbar items will be added dynamically -->
+        </div>
+        <div class="xp-system-tray">
+            <div class="xp-clock" id="xp-clock">12:00 PM</div>
+        </div>
+    </div>
+
+    <!-- Old modal system removed - now using XP windows -->
+
+    <script src="script.js"></script>
+</body>
+</html> 
