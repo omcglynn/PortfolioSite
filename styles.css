@@ -527,6 +527,7 @@ body.mobile .desktop-icon {
     z-index: 100;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+    max-width: 110vw;
 }
 
 /* Resize handle */
@@ -662,6 +663,9 @@ body.mobile .desktop-icon {
     font-size: 11px;
     line-height: 1.4;
     min-height: 0; /* Allow flexbox to shrink */
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    min-width: 0;
 }
 
 .xp-window-content h2 {
@@ -721,6 +725,7 @@ body.mobile .desktop-icon {
     flex-wrap: wrap;
     gap: 4px;
     margin: 8px 0;
+    min-width: 0;
 }
 
 .xp-tech-item {

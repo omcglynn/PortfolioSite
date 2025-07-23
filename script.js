@@ -10,6 +10,7 @@ class WindowsXPSimulator {
         this.soundsEnabled = true;
         this.sounds = {};
         this.windowPositions = {};
+        this.windowStates = {};
         
         // Icon dragging properties
         this.isDraggingIcon = false;
@@ -36,6 +37,7 @@ class WindowsXPSimulator {
         this.endResize = this.endResize.bind(this);
 
         this.init();
+        window.addEventListener('resize', () => this.handleViewportResize());
     }
 
     init() {
@@ -45,7 +47,8 @@ class WindowsXPSimulator {
         
         console.log('Found', this.desktopIcons.length, 'desktop icons');
         console.log('Found', this.windows.length, 'windows');
-        
+        console.log(window.innerWidth);  // e.g., 1920
+        console.log(window.innerHeight); // e.g., 969
         // Wait a moment for DOM to be fully ready, then load background
         setTimeout(() => {
             this.loadBackgroundImage();
@@ -53,6 +56,7 @@ class WindowsXPSimulator {
         
         // this.loadSounds(); // Sounds disabled for now
         this.loadWindowPositions();
+        this.loadWindowStates();
         this.setupMobileSupport();
         this.setupDesktopIcons();
         this.setupWindowManagement();
@@ -62,12 +66,27 @@ class WindowsXPSimulator {
         this.setupGitHubIntegration();
         // this.playStartupSound(); // Sounds disabled for now
         
-        // Open About Me window by default
+        // Restore window open/closed state for all windows
         setTimeout(() => {
-            this.openWindow(document.getElementById('window-about'), 'about');
-            this.openWindow(document.getElementById('window-contact'), 'contact');
+            this.windows.forEach(winElem => {
+                const winId = winElem.id.replace('window-', '');
+                let shouldOpen;
+                if (this.windowStates.hasOwnProperty(winId)) {
+                    shouldOpen = this.windowStates[winId].open;
+                } else {
+                    // Default: About and Contact open, others closed
+                    shouldOpen = (winId === 'about' || winId === 'contact');
+                }
+                if (shouldOpen) {
+                    this.openWindow(winElem, winId);
+                } else {
+                    winElem.classList.remove('active');
+                    winElem.style.display = 'none';
+                    this.openWindows.delete(winId);
+                }
+            });
         }, 500);
-        
+
         console.log('WindowsXPSimulator initialization complete');
     }
 
@@ -302,6 +321,24 @@ class WindowsXPSimulator {
         }
     }
 
+    loadWindowStates() {
+        try {
+            const saved = localStorage.getItem('xp-window-states');
+            this.windowStates = saved ? JSON.parse(saved) : {};
+        } catch (e) {
+            this.windowStates = {};
+        }
+    }
+
+    saveWindowState(windowId, state) {
+        this.windowStates[windowId] = state;
+        try {
+            localStorage.setItem('xp-window-states', JSON.stringify(this.windowStates));
+        } catch (e) {
+            console.log('Could not save window states');
+        }
+    }
+
     // Setup desktop icons interaction
     setupDesktopIcons() {
         console.log('Setting up desktop icons...');
@@ -457,17 +494,42 @@ class WindowsXPSimulator {
         this.bringWindowToFront(window);
         this.addToTaskbar(windowId, window);
         
-        // Restore saved position or center window
-        this.restoreWindowPosition(window, windowId);
-        if (!this.windowPositions[windowId]) {
-        this.centerWindow(window);
-    }
+        // Set position/size: use saved if exists, else default (no clamping)
+        if (this.windowPositions[windowId]) {
+            this.restoreWindowPosition(window, windowId);
+        } else {
+            // Default size/position config per window
+            const defaults = {
+                about:  { width: 750, height: 800, left: 300,  top: 20 },
+                contact: { width: 500, height: 550, left: 950, top: 120 },
+                project1: { width: 600, height: 420, left: 180, top: 80 },
+                project2: { width: 600, height: 420, left: 220, top: 120 },
+                project3: { width: 600, height: 420, left: 260, top: 160 },
+                // Add more as needed
+            };
+            const def = defaults[windowId] || { width: 500, height: 400, left: 100, top: 100 };
+            
+            // Clamp to desktop like resizing
+            const margin = 20;
+            const taskbar = document.querySelector('.xp-taskbar, .taskbar');
+            const taskbarHeight = taskbar ? taskbar.offsetHeight : 20;
+            const maxWidth = globalThis.innerWidth - margin;
+            const maxHeight = globalThis.innerHeight - margin - taskbarHeight;
+            const finalWidth = def.width > maxWidth ? maxWidth : def.width;
+            const finalHeight = def.height > maxHeight ? maxHeight : def.height;
+            window.style.width = finalWidth + 'px';
+            window.style.height = finalHeight + 'px';
+            window.style.left = def.left + 'px';
+            window.style.top = def.top + 'px';
+        }
 
         // Force display just in case
         window.style.display = 'flex';
         console.log('Forced window display to flex');
 
         this.playSound('windowOpen');
+        // Save open state
+        this.saveWindowState(windowId, { open: true });
     }
 
     // Close a window with position saving
@@ -493,6 +555,8 @@ class WindowsXPSimulator {
         this.openWindows.delete(windowId);
         this.removeFromTaskbar(windowId);
         this.playSound('windowClose');
+        // Save closed state
+        this.saveWindowState(windowId, { open: false });
         
         console.log('Window closed:', windowId);
     }
@@ -803,6 +867,50 @@ class WindowsXPSimulator {
     enableDragOnDesktop() {
         document.body.classList.remove('mobile');
         this.isMobile = false;
+    }
+
+    handleViewportResize() {
+        const margin = 20;
+        const taskbar = document.querySelector('.xp-taskbar, .taskbar');
+        const taskbarHeight = taskbar ? taskbar.offsetHeight : 20;
+        const maxWidth = globalThis.innerWidth - margin;
+        const maxHeight = globalThis.innerHeight - margin - taskbarHeight;
+        this.windows.forEach(winElem => {
+            if (!winElem.classList.contains('active')) return;
+            let width = winElem.offsetWidth;
+            let height = winElem.offsetHeight;
+            let left = parseInt(winElem.style.left) || 0;
+            let top = parseInt(winElem.style.top) || 0;
+            let resized = false;
+            if (width > maxWidth) {
+                winElem.style.width = maxWidth + 'px';
+                resized = true;
+            }
+            if (height > maxHeight) {
+                winElem.style.height = maxHeight + 'px';
+                resized = true;
+            }
+            // Optionally, clamp position so window is not off-screen
+            if (left + winElem.offsetWidth > globalThis.innerWidth - margin) {
+                winElem.style.left = Math.max(0, globalThis.innerWidth - margin - winElem.offsetWidth) + 'px';
+                resized = true;
+            }
+            if (top + winElem.offsetHeight > globalThis.innerHeight - margin - taskbarHeight) {
+                winElem.style.top = Math.max(0, globalThis.innerHeight - margin - taskbarHeight - winElem.offsetHeight) + 'px';
+                resized = true;
+            }
+            // Optionally, save new size/position if changed
+            if (resized) {
+                const windowId = winElem.id.replace('window-', '');
+                const rect = winElem.getBoundingClientRect();
+                this.saveWindowPosition(windowId, {
+                    x: parseInt(winElem.style.left) || rect.left,
+                    y: parseInt(winElem.style.top) || rect.top,
+                    width: winElem.offsetWidth,
+                    height: winElem.offsetHeight
+                });
+            }
+        });
     }
 }
 
