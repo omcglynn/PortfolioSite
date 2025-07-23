@@ -6,6 +6,7 @@
     <title>Portfolio - Interactive Desktop</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation removed -->
@@ -84,32 +85,79 @@
             </div>
             <div class="xp-window-content">
                 <h2>About Owen McGlynn</h2>
-                <p>I'm a Computer Science and Computational Mathematics student at UMass Amherst (graduating May 2027) with a passion for building innovative solutions. I specialize in full-stack development, data analysis, and AI/ML applications.</p>
+                <div class="xp-profile-pic-container">
+                  <img src="./assets/images/profilePic.png" alt="Owen McGlynn profile picture" class="xp-profile-pic" />
+                </div>
+                <p>Hi there, and thanks for stopping by! My name is Owen and I'm a Computer Science and Mathematics dual major at UMass Amherst (graduating May 2027) with a passion for building innovative solutions. I specialize in full-stack development, data analysis, and AI/ML applications. In my free time, I enjoy bouldering, hiking, skateboarding, and baking pastries.
                 
                 <h3>Education & Certifications</h3>
-                <p>Currently pursuing B.S. in Computer Science and Computational Mathematics with a Minor in Japanese at University of Massachusetts - Amherst (4.0 Major GPA, 3.99 Overall). Certified in CompTIA Security+ and CompTIA A+.</p>
+                <p>Currently pursuing degrees in Computer Science and Mathematics and a Minor in Japanese at University of Massachusetts - Amherst <strong>(4.0 Major GPA, 3.99 Overall)</strong>. Certified in CompTIA Security+ and CompTIA A+.</p>
                 
                 <h3>Professional Experience</h3>
-                <p>IT Intern at Honeywell FM&T (DOE Q-Level Clearance) where I designed automated data analysis tools and server management systems. Previously interned at Helzberg Diamonds building full-stack CCPA compliance applications.</p>
-                
-                <h3>Skills & Technologies</h3>
-                <div class="xp-tech-stack">
-                    <span class="xp-tech-item">Python</span>
-                    <span class="xp-tech-item">Java</span>
-                    <span class="xp-tech-item">JavaScript/TypeScript</span>
-                    <span class="xp-tech-item">React</span>
-                    <span class="xp-tech-item">Node.js</span>
-                    <span class="xp-tech-item">PostgreSQL</span>
-                    <span class="xp-tech-item">Docker</span>
-                    <span class="xp-tech-item">PyTorch</span>
-                    <span class="xp-tech-item">Flask</span>
-                    <span class="xp-tech-item">Snowflake</span>
-                    <span class="xp-tech-item">Linux</span>
-                    <span class="xp-tech-item">Git</span>
-                </div>
-                
+                <h4>Honeywell FM&T (05/2025 - 08/2025)</h5>
+                <h5>DoE Q-Level Clearance</h5>
+                <p>As an IT Intern II with the development team, I designed automated tools that identified over <strong>1,900</strong> deprecated program items and automated upgrade deployment for <strong>40+</strong> application servers, saving hours of manual work each month. I also led the recovery of a damaged server cluster—restoring operations in <u>under a day</u>—and presented integration strategies that were adopted by senior engineers.</p>
+                <h4>Helzberg Diamonds (05/2024 - 08/2024)</h4>
+                <p>Previously, at Helzberg Diamonds, I built a full-stack web app to automate CCPA compliance, decreasing processing time by <strong>90%</strong>. I also developed backend automation with Snowflake and Jupyter, helping the company achieve <u>near-total</u> compliance and better manage customer data in general.</p>
+
+                <h3>Certifications</h3>
+                <a href="./assets/secCert.pdf" target="_blank" class="xp-button">CompTIA Security+</a>
+                <a href="./assets/aCert.pdf" target="_blank" class="xp-button">CompTIA A+</a>
+
                 <h3>Leadership</h3>
                 <p>Active in Cybersecurity Club, AI Club, and Rock Climbing Club (Setter/Organizer). Former Chef and Shift Lead managing teams of 5-8 staff.</p>
+
+                <h3>Skills</h3>
+                <div class="xp-tech-categories">
+                  <div class="xp-tech-category">
+                    <h4>Spoken Languages</h4>
+                    <div class="xp-tech-stack">
+                      <span class="xp-tech-item"><i class="fa-solid fa-language"></i> English</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-language"></i> Japanese</span>
+                    </div>
+                  </div>
+                  <div class="xp-tech-category">
+                    <h4>Programming Languages</h4>
+                    <div class="xp-tech-stack">
+                      <span class="xp-tech-item"><i class="fa-brands fa-java"></i> Java</span>
+                      <span class="xp-tech-item"><i class="fa-brands fa-python"></i> Python</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-c"></i> C</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-database"></i> SQL</span>
+                      <span class="xp-tech-item"><i class="fa-brands fa-js"></i> JavaScript/TypeScript</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-terminal"></i> Tcl/Tk</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-code"></i> MQL</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-terminal"></i> Bash</span>
+                    </div>
+                  </div>
+                  <div class="xp-tech-category">
+                    <h4>Tools & Platforms</h4>
+                    <div class="xp-tech-stack">
+                      <span class="xp-tech-item"><i class="fa-solid fa-snowflake"></i> Snowflake</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-database"></i> PostgreSQL</span>
+                      <span class="xp-tech-item"><i class="fa-brands fa-git-alt"></i> Git</span>
+                      <span class="xp-tech-item"><i class="fa-brands fa-docker"></i> Docker</span>
+                      <span class="xp-tech-item"><i class="fa-brands fa-linux"></i> Linux</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-terminal"></i> VIM</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-server"></i> Unix</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-book"></i> Jupyter Notebooks</span>
+                    </div>
+                  </div>
+                  <div class="xp-tech-category">
+                    <h4>Libraries & Frameworks</h4>
+                    <div class="xp-tech-stack">
+                      <span class="xp-tech-item"><i class="fa-brands fa-react"></i> React</span>
+                      <span class="xp-tech-item"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-table"></i> Pandas</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-chart-line"></i> Streamlit</span>
+                      <span class="xp-tech-item"><i class="fa-brands fa-python"></i> PyTorch</span>
+                      <span class="xp-tech-item"><i class="fa-brands fa-python"></i> TensorFlow</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-square-root-variable"></i> NumPy</span>
+                      <span class="xp-tech-item"><i class="fa-solid fa-brain"></i> NLP</span>
+                    </div>
+                  </div>
+                </div>
+                
+                
                 
                 <h3>Contact Information</h3>
                 <a href="https://github.com/omcglynn" target="_blank" class="xp-button">GitHub Profile</a>
