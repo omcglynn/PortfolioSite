@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf.min.js"></script>
 </head>
 <body>
     <!-- Navigation removed -->
@@ -70,6 +71,12 @@
             <div class="icon-label">Recycle Bin</div>
         </div>
 
+        <!-- DocViewer Test Icon -->
+        <div class="desktop-icon" data-window="docviewer" style="top: 520px; left: 120px;">
+            <div class="icon-image" style="background-image: url('./assets/images/icons/docViewer.png');"></div>
+            <div class="icon-label">DocViewer</div>
+        </div>
+
         <!-- XP Windows (initially hidden) -->
         <div class="xp-window" id="window-about">
             <div class="xp-title-bar">
@@ -101,8 +108,8 @@
                 <p>Previously, at Helzberg Diamonds, I built a full-stack web app to automate CCPA compliance, decreasing processing time by <strong>90%</strong>. I also developed backend automation with Snowflake and Jupyter, helping the company achieve <u>near-total</u> compliance and better manage customer data in general.</p>
 
                 <h3>Certifications</h3>
-                <a href="./assets/secCert.pdf" target="_blank" class="xp-button">CompTIA Security+</a>
-                <a href="./assets/aCert.pdf" target="_blank" class="xp-button">CompTIA A+</a>
+                <a href="./assets/documents/secCert.pdf" target="_blank" class="xp-button">CompTIA Security+</a>
+                <a href="./assets/documents/aCert.pdf" target="_blank" class="xp-button">CompTIA A+</a>
 
                 <h3>Leadership</h3>
                 <p>Active in Cybersecurity Club, AI Club, and Rock Climbing Club (Setter/Organizer). Former Chef and Shift Lead managing teams of 5-8 staff.</p>
@@ -163,7 +170,7 @@
                 <a href="https://github.com/omcglynn" target="_blank" class="xp-button">GitHub Profile</a>
                 <a href="https://linkedin.com/in/owen-mcglynn-1063ba257" target="_blank" class="xp-button">LinkedIn</a>
                 <a href="mailto:oemcgl@gmail.com" class="xp-button">Send Email</a>
-                <a href="./assets/resume.pdf" target="_blank" class="xp-button">Download Resume</a>
+                <a href="./assets/documents/resume.pdf" target="_blank" class="xp-button">Download Resume</a>
             </div>
             <div class="xp-resize-handle"></div>
         </div>
@@ -184,6 +191,8 @@
             <div class="xp-window-content">
                 <h2>BetaBreak - Climbing Route Optimizer</h2>
                 <p>An advanced climbing route optimization web application that uses A* pathfinding algorithms and biomechanical models to deliver real-time, personalized climbing recommendations.</p>
+                
+                <p>This project actual began as a research paper for my Writing in Mathematics course. We were tasked with finding a problem in the real world that interested us and finding some way to apply our knowledge of mathematics to it. if you are interested in the full paper, you can find it <a href="./assets/documents/betabreak.pdf" class="docviewer-link">betabreak.pdf</a>.</p>
                 
                 <h3>Key Features</h3>
                 <p>• Advanced A* pathfinding algorithm with biomechanical modeling<br>
@@ -334,6 +343,34 @@
                 <a href="mailto:oemcgl@gmail.com" class="xp-button">Direct Email</a>
                 <a href="https://linkedin.com/in/owen-mcglynn-1063ba257" target="_blank" class="xp-button">LinkedIn</a>
                 <a href="https://github.com/omcglynn" target="_blank" class="xp-button">GitHub</a>
+            </div>
+            <div class="xp-resize-handle"></div>
+        </div>
+
+        <!-- Document Viewer Window -->
+        <div class="xp-window" id="window-docviewer" style="display: none; min-width: 400px; min-height: 300px; width: 700px; height: 500px;">
+            <div class="xp-title-bar">
+                <div class="xp-window-title">
+                    <div class="xp-window-icon" style="background-image: url('./assets/images/icons/docViewer.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                    <span>DocViewer</span>
+                </div>
+                <div class="xp-window-controls">
+                    <div class="xp-control-btn xp-minimize-btn">_</div>
+                    <div class="xp-control-btn xp-maximize-btn">□</div>
+                    <div class="xp-control-btn xp-close-btn">×</div>
+                </div>
+            </div>
+            <div class="xp-window-content" style="display: flex; flex-direction: column; height: 100%;">
+                <!-- Tab Bar -->
+                <div id="docviewer-tabs" style="display: flex; border-bottom: 1px solid #b5b5b5; background: #e5e5e5;"></div>
+                <!-- Toolbar -->
+                <div id="docviewer-toolbar" style="display: flex; align-items: center; gap: 8px; padding: 4px 8px; background: #f3f3f3; border-bottom: 1px solid #b5b5b5;">
+                    <button id="docviewer-zoom-in" class="xp-button" title="Zoom In">+</button>
+                    <button id="docviewer-zoom-out" class="xp-button" title="Zoom Out">-</button>
+                    <button id="docviewer-download" class="xp-button" title="Download">Download</button>
+                </div>
+                <!-- Content Area -->
+                <div id="docviewer-content" style="flex: 1 1 0; overflow: auto; background: white; display: flex; align-items: center; justify-content: center; position: relative;"></div>
             </div>
             <div class="xp-resize-handle"></div>
         </div>
