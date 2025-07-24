@@ -71,14 +71,25 @@ class WindowsXPSimulator {
             this.windows.forEach(winElem => {
                 const winId = winElem.id.replace('window-', '');
                 let shouldOpen;
+                let shouldMinimize = false;
+                
                 if (this.windowStates.hasOwnProperty(winId)) {
-                    shouldOpen = this.windowStates[winId].open;
+                    const state = this.windowStates[winId];
+                    shouldOpen = state.open;
+                    shouldMinimize = state.minimized || false;
                 } else {
                     // Default: About and Contact open, others closed
                     shouldOpen = (winId === 'about' || winId === 'contact');
+                    shouldMinimize = false;
                 }
+                
                 if (shouldOpen) {
                     this.openWindow(winElem, winId);
+                    if (shouldMinimize) {
+                        // Keep window in taskbar but hide it
+                        winElem.style.display = 'none';
+                        this.saveWindowState(winId, { open: true, minimized: true });
+                    }
                 } else {
                     winElem.classList.remove('active');
                     winElem.style.display = 'none';
@@ -529,7 +540,7 @@ class WindowsXPSimulator {
 
         this.playSound('windowOpen');
         // Save open state
-        this.saveWindowState(windowId, { open: true });
+        this.saveWindowState(windowId, { open: true, minimized: false });
     }
 
     // Close a window with position saving
@@ -556,15 +567,25 @@ class WindowsXPSimulator {
         this.removeFromTaskbar(windowId);
         this.playSound('windowClose');
         // Save closed state
-        this.saveWindowState(windowId, { open: false });
+        this.saveWindowState(windowId, { open: false, minimized: false });
         
         console.log('Window closed:', windowId);
     }
 
     // Minimize window
     minimizeWindow(window) {
+        const windowId = window.id.replace('window-', '');
         window.style.display = 'none';
         this.playSound('minimize');
+        this.saveWindowState(windowId, { open: true, minimized: true });
+    }
+
+    // Restore window from minimized state
+    restoreWindow(window) {
+        const windowId = window.id.replace('window-', '');
+        window.style.display = 'flex';
+        this.bringWindowToFront(window);
+        this.saveWindowState(windowId, { open: true, minimized: false });
     }
 
     // Maximize/restore window
@@ -708,6 +729,17 @@ class WindowsXPSimulator {
     setupTaskbar() {
         const taskbarItems = document.getElementById('taskbar-items');
         this.taskbarItems = taskbarItems;
+        
+        // Add Start button functionality
+        const startButton = document.querySelector('.xp-start-button');
+        if (startButton) {
+            startButton.addEventListener('click', () => {
+                // Clear all localStorage
+                localStorage.clear();
+                // Reload the page to reset everything
+                location.reload();
+            });
+        }
     }
 
     addToTaskbar(windowId, window) {
@@ -727,11 +759,13 @@ class WindowsXPSimulator {
         
         taskbarItem.addEventListener('click', () => {
             if (window.style.display === 'none') {
-                window.style.display = 'flex';
-                this.bringWindowToFront(window);
+                // Window is minimized, restore it
+                this.restoreWindow(window);
             } else if (window.style.zIndex == this.zIndexCounter) {
+                // Window is active, minimize it
                 this.minimizeWindow(window);
             } else {
+                // Window is not active, bring to front
                 this.bringWindowToFront(window);
             }
         });
