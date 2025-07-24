@@ -1,0 +1,61 @@
+/* Desktop and background styles */
+.desktop {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 40px);
+    padding: 20px;
+    overflow: hidden;
+    background: transparent;
+}
+
+body {
+    --xp-blue: #0054E3;
+    --xp-light-blue: #4A9EFF;
+    --xp-dark-blue: #003C9D;
+    --xp-green: #39A96B;
+    --xp-gray: #ECE9D8;
+    --xp-dark-gray: #ACA899;
+    --xp-white: #FFFFFF;
+    --xp-black: #000000;
+    --xp-taskbar: #245EDC;
+    --xp-window-bg: #ECE9D8;
+    --xp-text: #000000;
+    font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+    background: linear-gradient(45deg, #39A96B 0%, #4A9EFF 100%);
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow: hidden;
+    user-select: none;
+    color: var(--xp-text);
+    cursor: default;
+}
+
+body.mobile .desktop {
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .desktop {
+        overflow-x: auto;
+        overflow-y: auto;
+        padding-top: 1rem;
+    }
+} 
+
+/* Thinner, more square scrollbars for XP look */
+.xp-window-content::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+.xp-window-content::-webkit-scrollbar-thumb {
+    background: #b5b5b5;
+    border-radius: 2px;
+}
+.xp-window-content::-webkit-scrollbar-track {
+    background: #ece9d8;
+} 
