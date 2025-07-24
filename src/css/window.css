@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Windows XP Window Styling */
+.xp-window {
+    position: absolute;
+    background: var(--xp-window-bg);
+    border: 2px outset var(--xp-gray);
+    min-width: 400px;
+    min-height: 300px;
+    display: none;
+    z-index: 100;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+}
+
+.xp-resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    cursor: nw-resize;
+    background: var(--xp-window-bg);
+    z-index: 110;
+}
+
+.xp-resize-handle::before {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    width: 10px;
+    height: 10px;
+    background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 1px,
+        var(--xp-dark-gray) 1px,
+        var(--xp-dark-gray) 2px
+    );
+}
+
+.xp-window.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.xp-title-bar {
+    height: 30px;
+    background: linear-gradient(to bottom, var(--xp-light-blue) 0%, var(--xp-blue) 100%);
+    border-bottom: 1px solid var(--xp-dark-blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    cursor: move;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.xp-title-bar.inactive {
+    background: linear-gradient(to bottom, #BFBFBF 0%, #808080 100%);
+}
+
+.xp-window-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.xp-window-icon {
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(45deg, #4A9EFF, #0054E3);
+    border-radius: 2px;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#window-about .xp-window-icon {
+    background-image: url('/assets/images/icons/about-me.png');
+}
+
+#window-contact .xp-window-icon {
+    background-image: url('/assets/images/icons/contact.png');
+}
+
+#window-project1 .xp-window-icon{
+    background-image: url('/assets/images/icons/betabreak-ico.png');
+}
+#window-project2 .xp-window-icon{
+    background-image: url('/assets/images/icons/storme-ico.png');
+}
+#window-project3 .xp-window-icon{
+    background-image: url('/assets/images/icons/ai-ico.png');
+}
+#window-project4 .xp-window-icon{
+    background-image: url('/assets/images/windows/window-project.png');
+}
+#window-project5 .xp-window-icon {
+    background-image: url('/assets/images/windows/window-project.png');
+}
+
+.xp-window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.xp-control-btn {
+    width: 21px;
+    height: 21px;
+    background: linear-gradient(to bottom, #F0F0F0 0%, #D0D0D0 100%);
+    border: 1px outset #D0D0D0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: #000;
+}
+
+.xp-control-btn:hover {
+    background: linear-gradient(to bottom, #F8F8F8 0%, #E0E0E0 100%);
+}
+
+.xp-control-btn:active {
+    border: 1px inset #D0D0D0;
+    background: linear-gradient(to bottom, #D0D0D0 0%, #F0F0F0 100%);
+}
+
+.xp-close-btn:hover {
+    background: linear-gradient(to bottom, #FF6B6B 0%, #E53E3E 100%);
+    color: white;
+}
+
+.xp-window-content {
+    flex: 1;
+    background: var(--xp-window-bg);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 16px;
+    font-size: 11px;
+    line-height: 1.4;
+    min-height: 0; /* Allow flexbox to shrink */
+}
+
+.xp-window-content h2 {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--xp-blue);
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--xp-dark-gray);
+    padding-bottom: 4px;
+}
+
+.xp-window-content h3 {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--xp-text);
+    margin: 12px 0 6px 0;
+}
+
+.xp-window-content p {
+    margin-bottom: 10px;
+    color: var(--xp-text);
+}
+
+.xp-window-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px inset var(--xp-gray);
+    margin: 8px 0;
+}
+
+.xp-button {
+    background: linear-gradient(to bottom, #F0F0F0 0%, #D0D0D0 100%);
+    border: 1px outset #D0D0D0;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-family: 'Tahoma', sans-serif;
+    color: var(--xp-text);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px;
+}
+
+.xp-button:hover {
+    background: linear-gradient(to bottom, #F8F8F8 0%, #E0E0E0 100%);
+}
+
+.xp-button:active {
+    border: 1px inset #D0D0D0;
+    background: linear-gradient(to bottom, #D0D0D0 0%, #F0F0F0 100%);
+}
+
+.xp-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 8px 0;
+}
+
+.xp-tech-item {
+    background: linear-gradient(to bottom, #E8E8E8 0%, #D0D0D0 100%);
+    border: 1px inset #D0D0D0;
+    padding: 2px 6px;
+    font-size: 10px;
+    color: var(--xp-text);
+}
+
+.xp-window.remembered-position {
+    /* This class will be added to windows with saved positions */
+} 
