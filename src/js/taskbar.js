@@ -26,11 +26,11 @@ export class TaskbarManager {
         }
         let iconImageUrl = '';
         switch(windowId) {
-            case 'about': iconImageUrl = './assets/images/windows/window-about.png'; break;
-            case 'contact': iconImageUrl = './assets/images/windows/window-contact.png'; break;
-            case 'project1': iconImageUrl = './assets/images/windows/betabreak.png'; break;
-            case 'project2': iconImageUrl = './assets/images/windows/storme.png'; break;
-            case 'project3': iconImageUrl = './assets/images/icons/ai-ico.png'; break;
+            case 'about': iconImageUrl = '${import.meta.env.BASE_URL}/assets/images/windows/window-about.png'; break;
+            case 'contact': iconImageUrl = '${import.meta.env.BASE_URL}/assets/images/windows/window-contact.png'; break;
+            case 'project1': iconImageUrl = '${import.meta.env.BASE_URL}/assets/images/windows/betabreak.png'; break;
+            case 'project2': iconImageUrl = '${import.meta.env.BASE_URL}/assets/images/windows/storme.png'; break;
+            case 'project3': iconImageUrl = '${import.meta.env.BASE_URL}/assets/images/icons/ai-ico.png'; break;
             default: iconImageUrl = '';
         }
         const iconStyle = iconImageUrl ? `background-image: url('${iconImageUrl}'); background-size: contain; background-repeat: no-repeat; background-position: center;` : '';

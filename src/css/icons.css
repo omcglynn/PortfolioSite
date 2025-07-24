@@ -47,15 +47,15 @@
 }
 
 .desktop-icon[data-window="about"] .icon-image {
-    background-image: url('./assets/images/icons/about-me.png');
+    background-image: url('/assets/images/icons/about-me.png');
 }
 
 .desktop-icon[data-window^="project"] .icon-image {
-    background-image: url('./assets/images/icons/projects.png');
+    background-image: url('/assets/images/icons/projects.png');
 }
 
 .desktop-icon[data-window="contact"] .icon-image {
-    background-image: url('./assets/images/icons/contact.png');
+    background-image: url('/assets/images/icons/contact.png');
 }
 
 .desktop-icon .icon-label {

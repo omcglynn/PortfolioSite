@@ -7,7 +7,7 @@ import { ContactFormManager } from './contactForm.js';
 document.addEventListener('DOMContentLoaded', () => {
   // Set desktop background image (XP look)
   document.body.style.background = '';
-  document.body.style.backgroundImage = "url('./assets/images/backgrounds/desktop-background.png')";
+  document.body.style.backgroundImage = `url('${import.meta.env.BASE_URL}assets/images/backgrounds/desktop-background.png')`;
   document.body.style.backgroundSize = 'cover';
   document.body.style.backgroundPosition = 'center center';
   document.body.style.backgroundRepeat = 'no-repeat';
