@@ -1,0 +1,12 @@
+SOUND EFFECTS NEEDED (.wav or .mp3):
+===================================
+
+1. startup.wav - Windows XP startup sound
+2. window-open.wav - Sound when opening windows
+3. window-close.wav - Sound when closing windows  
+4. button-click.wav - Button click sound
+5. minimize.wav - Window minimize sound
+6. maximize.wav - Window maximize sound
+7. error.wav - Error sound (optional)
+
+These will play during various interactions to enhance the XP experience. 
