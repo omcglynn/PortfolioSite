@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Windows XP Window Styling */
 .xp-window {
     position: absolute;
@@ -83,19 +89,27 @@
 }
 
 #window-about .xp-window-icon {
-    background-image: url('./assets/images/windows/window-about.png');
+    background-image: url('/assets/images/icons/about-me.png');
 }
 
 #window-contact .xp-window-icon {
-    background-image: url('./assets/images/windows/window-contact.png');
+    background-image: url('/assets/images/icons/contact.png');
 }
 
-#window-project1 .xp-window-icon,
-#window-project2 .xp-window-icon,
-#window-project3 .xp-window-icon,
-#window-project4 .xp-window-icon,
+#window-project1 .xp-window-icon{
+    background-image: url('/assets/images/icons/betabreak-ico.png');
+}
+#window-project2 .xp-window-icon{
+    background-image: url('/assets/images/icons/storme-ico.png');
+}
+#window-project3 .xp-window-icon{
+    background-image: url('/assets/images/icons/ai-ico.png');
+}
+#window-project4 .xp-window-icon{
+    background-image: url('/assets/images/windows/window-project.png');
+}
 #window-project5 .xp-window-icon {
-    background-image: url('./assets/images/windows/window-project.png');
+    background-image: url('/assets/images/windows/window-project.png');
 }
 
 .xp-window-controls {
