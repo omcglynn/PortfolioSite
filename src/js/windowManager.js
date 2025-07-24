@@ -3,6 +3,7 @@
 
 export class WindowManager {
     constructor(windows, taskbarManager) {
+        console.log('WindowManager constructor called');
         this.windows = windows;
         this.zIndexCounter = 100;
         this.isDragging = false;
@@ -19,6 +20,8 @@ export class WindowManager {
         this.openWindows = new Set();
         this.restoreAllState();
         this.init();
+        this.handleViewportResize = this.handleViewportResize.bind(this);
+        window.addEventListener('resize', this.handleViewportResize);
     }
 
     // Save all window state to localStorage
@@ -340,5 +343,49 @@ export class WindowManager {
         }
         // Always bring to front and select
         this.bringWindowToFront(win);
+    }
+
+    handleViewportResize() {
+        console.log('handleViewportResize called');
+        const margin = 20;
+        const taskbar = document.querySelector('.xp-taskbar, .taskbar');
+        const taskbarHeight = taskbar ? taskbar.offsetHeight : 20;
+        const maxWidth = globalThis.innerWidth - margin;
+        const maxHeight = globalThis.innerHeight - margin - taskbarHeight;
+        this.windows.forEach(winElem => {
+            if (!winElem.classList.contains('active')) return;
+            console.log('Resizing window:', winElem.id);
+            let width = winElem.offsetWidth;
+            let height = winElem.offsetHeight;
+            let left = parseInt(winElem.style.left) || 0;
+            let top = parseInt(winElem.style.top) || 0;
+            let resized = false;
+            if (width > maxWidth) {
+                winElem.style.width = maxWidth + 'px';
+                resized = true;
+            }
+            if (height > maxHeight) {
+                winElem.style.height = maxHeight + 'px';
+                resized = true;
+            }
+            if (left + winElem.offsetWidth > globalThis.innerWidth - margin) {
+                winElem.style.left = Math.max(0, globalThis.innerWidth - margin - winElem.offsetWidth) + 'px';
+                resized = true;
+            }
+            if (top + winElem.offsetHeight > globalThis.innerHeight - margin - taskbarHeight) {
+                winElem.style.top = Math.max(0, globalThis.innerHeight - margin - taskbarHeight - winElem.offsetHeight) + 'px';
+                resized = true;
+            }
+            if (resized) {
+                const windowId = winElem.id.replace('window-', '');
+                const rect = winElem.getBoundingClientRect();
+                this.saveWindowPosition(windowId, {
+                    x: parseInt(winElem.style.left) || rect.left,
+                    y: parseInt(winElem.style.top) || rect.top,
+                    width: winElem.offsetWidth,
+                    height: winElem.offsetHeight
+                });
+            }
+        });
     }
 } 
