@@ -34,11 +34,15 @@
             <div class="icon-image" style="background-image: url('/assets/images/icons/contact.png');"></div>
             <div class="icon-label">Contact Me</div>
         </div>
+        <!--<div class="desktop-icon" data-window="contactinfo" style="top: 520px; left: 120px;">
+            <div class="icon-image" style="background-image: url('/assets/images/icons/my-documents.png');"></div>
+            <div class="icon-label">Contact Info</div>
+        </div>-->
         <div class="desktop-icon desktop-shortcut" style="top: 20px; left: 20px;">
             <div class="icon-image" style="background-image: url('/assets/images/icons/my-computer.png');"></div>
             <div class="icon-label">My Computer</div>
         </div>
-        <div class="desktop-icon desktop-shortcut" style="top: 120px; left: 20px;">
+        <div class="desktop-icon desktop-shortcut" data-window="explorer" style="top: 120px; left: 20px;">
             <div class="icon-image" style="background-image: url('/assets/images/icons/my-documents.png');"></div>
             <div class="icon-label">My Documents</div>
         </div>
@@ -138,7 +142,7 @@
                 <h3>Contact Information</h3>
                 <a href="https://github.com/omcglynn" target="_blank" class="xp-button">GitHub Profile</a>
                 <a href="https://linkedin.com/in/owen-mcglynn-1063ba257" target="_blank" class="xp-button">LinkedIn</a>
-                <a href="mailto:oemcgl@gmail.com" class="xp-button">Send Email</a>
+                <button id="open-contact-info" class="xp-button">Contact Info</button>
                 <a href="/assets/documents/resume.pdf" target="_blank" class="xp-button">Download Resume</a>
             </div>
             <div class="xp-resize-handle"></div>
@@ -260,7 +264,7 @@
             <div class="xp-window-content">
                 <h2>Get In Touch</h2>
                 <p>I'd love to hear from you! Feel free to reach out about projects, collaborations, or just to say hello.</p>
-                <form class="xp-contact-form" id="contact-form">
+                <form class="xp-contact-form" id="contact-form" action="https://formspree.io/f/movldvvk" method="POST" onsubmit="console.log('submitting');">
                     <div class="xp-form-group">
                         <label for="contact-name">Name:</label>
                         <input type="text" id="contact-name" name="name" required class="xp-input">
@@ -292,7 +296,7 @@
         <div class="xp-window" id="window-docviewer" style="display: none; min-width: 400px; min-height: 300px; width: 700px; height: 500px;">
             <div class="xp-title-bar">
                 <div class="xp-window-title">
-                    <div class="xp-window-icon" style="background-image: url('/assets/images/icons/docViewer.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                    <div class="xp-window-icon" style="background-image: url('/assets/images/icons/docViewer.png');"></div>
                     <span>DocViewer</span>
                 </div>
                 <div class="xp-window-controls">
@@ -311,6 +315,68 @@
                 <div id="docviewer-content" style="flex: 1 1 0; overflow: auto; background: white; display: flex; align-items: center; justify-content: center; position: relative;"></div>
             </div>
             <div class="xp-resize-handle"></div>
+        </div>
+        <!-- New XP Notepad-style Contact Info Window -->
+        <div class="xp-window" id="window-contactinfo" style="display: none; min-width: 400px; min-height: 300px; width: 500px; height: 350px;">
+            <div class="xp-title-bar">
+                <div class="xp-window-title">
+                    <div class="xp-window-icon" style="background-image: url('/assets/images/icons/txt.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                    <span>contactInfo.txt - Notepad</span>
+                </div>
+                <div class="xp-window-controls">
+                    <div class="xp-control-btn xp-minimize-btn">_</div>
+                    <div class="xp-control-btn xp-maximize-btn">□</div>
+                    <div class="xp-control-btn xp-close-btn">×</div>
+                </div>
+            </div>
+            <div class="xp-window-content notepad-content" style="background: white; font-family: 'Consolas', 'Courier New', monospace; font-size: 13px; color: #222; padding: 8px;">
+                <pre style="margin: 0; line-height: 1.5;">
+Email: oemcgl@gmail.com
+Phone: (913) 424-2420
+Home Locale: Overland Park, KS
+School Locale: Amherst, MA
+
+LinkedIn: linkedin.com/in/owen-mcglynn-1063ba257
+GitHub: github.com/omcglynn
+                </pre>
+            </div>
+            <div class="xp-resize-handle"></div>
+        </div>
+        <div class="xp-window" id="window-explorer" style="display: none; min-width: 500px; min-height: 350px; width: 700px; height: 500px;">
+          <div class="xp-title-bar">
+            <div class="xp-window-title">
+              <div class="xp-window-icon" style="background-image: url('/assets/images/icons/my-documents.png'); background-size: contain; background-repeat: no-repeat;"></div>
+              <span id="explorer-title">My Documents</span>
+            </div>
+            <div class="xp-window-controls">
+              <div class="xp-control-btn xp-minimize-btn">_</div>
+              <div class="xp-control-btn xp-maximize-btn">□</div>
+              <div class="xp-control-btn xp-close-btn">×</div>
+            </div>
+          </div>
+          <div class="xp-window-content explorer-content">
+            <div class="explorer-menubar">
+              <button class="explorer-btn" id="explorer-back" title="Back"><span>&lt;</span></button>
+              <button class="explorer-btn" id="explorer-forward" title="Forward"><span>&gt;</span></button>
+              <button class="explorer-btn" id="explorer-up" title="Up"><span>Up</span></button>
+              <span>File</span>
+              <span>Edit</span>
+              <span>View</span>
+              <span>Favorites</span>
+              <span>Tools</span>
+              <span>Help</span>
+            </div>
+            <div class="explorer-toolbar">
+              <img src="/assets/images/icons/my-documents.png" class="explorer-toolbar-icon">
+              <span class="explorer-toolbar-title">My Documents</span>
+            </div>
+            <div class="explorer-list-container">
+              <div class="explorer-list-panel">
+                <div id="explorer-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="xp-resize-handle"></div>
         </div>
     </main>
     <!-- Windows XP Taskbar -->
