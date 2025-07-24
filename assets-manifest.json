@@ -1,0 +1,178 @@
+{
+  "name": "assets",
+  "type": "folder",
+  "children": [
+    {
+      "name": "documents",
+      "type": "folder",
+      "children": [
+        {
+          "name": "aCert.pdf",
+          "type": "file",
+          "path": "assets/documents/aCert.pdf"
+        },
+        {
+          "name": "betabreak.pdf",
+          "type": "file",
+          "path": "assets/documents/betabreak.pdf"
+        },
+        {
+          "name": "resume.pdf",
+          "type": "file",
+          "path": "assets/documents/resume.pdf"
+        },
+        {
+          "name": "secCert.pdf",
+          "type": "file",
+          "path": "assets/documents/secCert.pdf"
+        }
+      ]
+    },
+    {
+      "name": "images",
+      "type": "folder",
+      "children": [
+        {
+          "name": "backgrounds",
+          "type": "folder",
+          "children": [
+            {
+              "name": "desktop-background.png",
+              "type": "file",
+              "path": "assets/images/backgrounds/desktop-background.png"
+            }
+          ]
+        },
+        {
+          "name": "icons",
+          "type": "folder",
+          "children": [
+            {
+              "name": "about-me.png",
+              "type": "file",
+              "path": "assets/images/icons/about-me.png"
+            },
+            {
+              "name": "ai-ico.png",
+              "type": "file",
+              "path": "assets/images/icons/ai-ico.png"
+            },
+            {
+              "name": "betabreak-ico.png",
+              "type": "file",
+              "path": "assets/images/icons/betabreak-ico.png"
+            },
+            {
+              "name": "contact.png",
+              "type": "file",
+              "path": "assets/images/icons/contact.png"
+            },
+            {
+              "name": "docViewer.png",
+              "type": "file",
+              "path": "assets/images/icons/docViewer.png"
+            },
+            {
+              "name": "my-computer.png",
+              "type": "file",
+              "path": "assets/images/icons/my-computer.png"
+            },
+            {
+              "name": "my-documents.png",
+              "type": "file",
+              "path": "assets/images/icons/my-documents.png"
+            },
+            {
+              "name": "network-places.png",
+              "type": "file",
+              "path": "assets/images/icons/network-places.png"
+            },
+            {
+              "name": "projects.png",
+              "type": "file",
+              "path": "assets/images/icons/projects.png"
+            },
+            {
+              "name": "recycle-bin.png",
+              "type": "file",
+              "path": "assets/images/icons/recycle-bin.png"
+            },
+            {
+              "name": "storeme-ico.png",
+              "type": "file",
+              "path": "assets/images/icons/storeme-ico.png"
+            }
+          ]
+        },
+        {
+          "name": "profilePic.png",
+          "type": "file",
+          "path": "assets/images/profilePic.png"
+        },
+        {
+          "name": "tech",
+          "type": "folder",
+          "children": [
+            {
+              "name": "python.png",
+              "type": "file",
+              "path": "assets/images/tech/python.png"
+            }
+          ]
+        },
+        {
+          "name": "windows",
+          "type": "folder",
+          "children": [
+            {
+              "name": "ASSETS_NEEDED.txt",
+              "type": "file",
+              "path": "assets/images/windows/ASSETS_NEEDED.txt"
+            },
+            {
+              "name": "betabreak.png",
+              "type": "file",
+              "path": "assets/images/windows/betabreak.png"
+            },
+            {
+              "name": "start-button.png",
+              "type": "file",
+              "path": "assets/images/windows/start-button.png"
+            },
+            {
+              "name": "storme.png",
+              "type": "file",
+              "path": "assets/images/windows/storme.png"
+            },
+            {
+              "name": "window-about.png",
+              "type": "file",
+              "path": "assets/images/windows/window-about.png"
+            },
+            {
+              "name": "window-contact.png",
+              "type": "file",
+              "path": "assets/images/windows/window-contact.png"
+            },
+            {
+              "name": "window-project.png",
+              "type": "file",
+              "path": "assets/images/windows/window-project.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sounds",
+      "type": "folder",
+      "children": [
+        {
+          "name": "ASSETS_NEEDED.txt",
+          "type": "file",
+          "path": "assets/sounds/ASSETS_NEEDED.txt"
+        }
+      ]
+    }
+  ]
+}

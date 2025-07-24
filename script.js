@@ -1138,6 +1138,40 @@ class DocViewer {
         this.activeTab = null;
         this.zoom = 1.0;
         this.setupEvents();
+        // Restore tabs from localStorage
+        this.restoreTabsFromStorage();
+    }
+
+    saveTabsToStorage() {
+        const tabsToSave = this.tabs.map(tab => ({ url: tab.url, name: tab.name, ext: tab.ext }));
+        const activeTabUrl = this.activeTab ? this.activeTab.url : null;
+        localStorage.setItem('docviewer-tabs', JSON.stringify(tabsToSave));
+        localStorage.setItem('docviewer-active-tab', activeTabUrl);
+    }
+
+    restoreTabsFromStorage() {
+        const tabsJson = localStorage.getItem('docviewer-tabs');
+        const activeTabUrl = localStorage.getItem('docviewer-active-tab');
+        if (tabsJson) {
+            try {
+                const tabsArr = JSON.parse(tabsJson);
+                this.tabs = tabsArr.map(tab => {
+                    const id = 'tab-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+                    return { id, ...tab };
+                });
+                this.renderTabs();
+                if (this.tabs.length > 0) {
+                    let toActivate = this.tabs[0].id;
+                    if (activeTabUrl) {
+                        const found = this.tabs.find(tab => tab.url === activeTabUrl);
+                        if (found) toActivate = found.id;
+                    }
+                    this.setActiveTab(toActivate);
+                }
+            } catch (e) {
+                // Ignore parse errors
+            }
+        }
     }
 
     setupEvents() {
@@ -1166,6 +1200,7 @@ class DocViewer {
         this.tabs.push(tab);
         this.renderTabs();
         this.setActiveTab(id);
+        this.saveTabsToStorage();
         if (!skipOpenWindow) this.bringToFront();
     }
 
@@ -1173,6 +1208,7 @@ class DocViewer {
         this.activeTab = this.tabs.find(tab => tab.id === id);
         this.renderTabs();
         this.renderContent();
+        this.saveTabsToStorage();
     }
 
     closeTab(id) {
@@ -1191,6 +1227,7 @@ class DocViewer {
             } else {
                 this.renderTabs();
             }
+            this.saveTabsToStorage();
         }
     }
 
@@ -1275,7 +1312,7 @@ class DocViewer {
         }
         const container = this.contentArea.querySelector('#docviewer-pdf-container');
         container.innerHTML = '';
-        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf.worker.min.js';
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.worker.min.js';
         window.pdfjsLib.getDocument(url).promise.then(pdf => {
             for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
                 pdf.getPage(pageNum).then(page => {
