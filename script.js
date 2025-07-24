@@ -747,15 +747,109 @@ class WindowsXPSimulator {
         taskbarItem.className = 'xp-taskbar-item active';
         taskbarItem.dataset.windowId = windowId;
         
-        const icon = window.querySelector('.xp-window-icon');
         const title = window.querySelector('.xp-window-title span');
         
+        // Get the taskbar text from the corresponding desktop icon label
+        let taskbarText = 'Window';
+        const desktopIcon = document.querySelector(`[data-window="${windowId}"]`);
+        if (desktopIcon) {
+            const iconLabel = desktopIcon.querySelector('.icon-label');
+            if (iconLabel) {
+                taskbarText = iconLabel.textContent;
+            }
+        }
+        
+        // Use the same icons as desktop icons
+        let iconImageUrl = '';
+        switch(windowId) {
+            case 'about':
+                // About icon doesn't have a background image, use a default user icon
+                iconImageUrl = './assets/images/windows/window-about.png';
+                break;
+            case 'contact':
+                // Contact icon doesn't have a background image, use a default email icon
+                iconImageUrl = './assets/images/windows/window-contact.png';
+                break;
+            case 'project1':
+                iconImageUrl = './assets/images/windows/betabreak.png';
+                break;
+            case 'project2':
+                iconImageUrl = './assets/images/windows/storme.png';
+                break;
+            case 'project3':
+                iconImageUrl = './assets/images/icons/ai-ico.png';
+                break;
+            default:
+                iconImageUrl = '';
+        }
+        
+        const iconStyle = iconImageUrl ? `background-image: url('${iconImageUrl}'); background-size: contain; background-repeat: no-repeat; background-position: center;` : '';
+        
         taskbarItem.innerHTML = `
-            <div style="width: 16px; height: 16px; background: linear-gradient(45deg, #4A9EFF, #0054E3); border-radius: 2px; display: flex; align-items: center; justify-content: center; color: white; font-size: 8px;">
-                ${icon ? icon.textContent : '🪟'}
+            <div style="width: 16px; height: 16px; ${iconImageUrl ? '' : 'background: linear-gradient(45deg, #4A9EFF, #0054E3);'} border-radius: 2px; display: flex; align-items: center; justify-content: center; color: white; font-size: 8px; ${iconStyle}">
+                ${!iconImageUrl ? '🪟' : ''}
             </div>
-            ${title ? title.textContent : 'Window'}
+            ${taskbarText}
         `;
+        
+        // Add drag functionality
+        taskbarItem.draggable = true;
+        taskbarItem.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', windowId);
+            // Make the original element invisible during drag
+            taskbarItem.style.opacity = '0';
+            this.draggedTaskbarItem = taskbarItem;
+            this.draggedWindowId = windowId;
+            
+            // Create a custom drag image that follows the cursor
+            const dragImage = taskbarItem.cloneNode(true);
+            dragImage.style.position = 'fixed';
+            dragImage.style.top = '-1000px';
+            dragImage.style.left = '-1000px';
+            dragImage.style.zIndex = '9999';
+            dragImage.style.pointerEvents = 'none';
+            document.body.appendChild(dragImage);
+            e.dataTransfer.setDragImage(dragImage, 0, 0);
+            
+            // Remove the drag image after drag starts
+            setTimeout(() => {
+                document.body.removeChild(dragImage);
+            }, 0);
+        });
+        
+        taskbarItem.addEventListener('dragend', () => {
+            taskbarItem.style.opacity = '1';
+            this.draggedTaskbarItem = null;
+            this.draggedWindowId = null;
+        });
+        
+        taskbarItem.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            if (this.draggedTaskbarItem && this.draggedTaskbarItem !== taskbarItem) {
+                this.handleTaskbarDragOver(e, taskbarItem);
+            }
+        });
+        
+        taskbarItem.addEventListener('dragenter', (e) => {
+            e.preventDefault();
+            if (this.draggedTaskbarItem && this.draggedTaskbarItem !== taskbarItem) {
+                this.handleTaskbarDragEnter(e, taskbarItem);
+            }
+        });
+        
+        taskbarItem.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            if (this.draggedTaskbarItem && this.draggedTaskbarItem !== taskbarItem) {
+                this.handleTaskbarDragLeave(e, taskbarItem);
+            }
+        });
+        
+        taskbarItem.addEventListener('drop', (e) => {
+            e.preventDefault();
+            if (this.draggedTaskbarItem && this.draggedTaskbarItem !== taskbarItem) {
+                this.handleTaskbarDrop(e, taskbarItem);
+            }
+        });
         
         taskbarItem.addEventListener('click', () => {
             if (window.style.display === 'none') {
@@ -771,6 +865,74 @@ class WindowsXPSimulator {
         });
         
         this.taskbarItems.appendChild(taskbarItem);
+    }
+
+    handleTaskbarDragOver(e, targetItem) {
+        const rect = targetItem.getBoundingClientRect();
+        const mouseX = e.clientX;
+        const centerX = rect.left + rect.width / 2;
+        
+        // Determine if we should insert before or after based on mouse position
+        if (mouseX < centerX) {
+            targetItem.style.borderLeft = '2px solid #4A9EFF';
+            targetItem.style.borderRight = '';
+        } else {
+            targetItem.style.borderRight = '2px solid #4A9EFF';
+            targetItem.style.borderLeft = '';
+        }
+    }
+
+    handleTaskbarDragEnter(e, targetItem) {
+        // Add visual feedback for drag target
+        targetItem.style.backgroundColor = 'rgba(74, 158, 255, 0.2)';
+    }
+
+    handleTaskbarDragLeave(e, targetItem) {
+        // Remove visual feedback
+        targetItem.style.backgroundColor = '';
+        targetItem.style.borderLeft = '';
+        targetItem.style.borderRight = '';
+    }
+
+    handleTaskbarDrop(e, targetItem) {
+        const draggedItem = this.draggedTaskbarItem;
+        const rect = targetItem.getBoundingClientRect();
+        const mouseX = e.clientX;
+        const centerX = rect.left + rect.width / 2;
+        
+        // Remove visual feedback
+        targetItem.style.backgroundColor = '';
+        targetItem.style.borderLeft = '';
+        targetItem.style.borderRight = '';
+        
+        // Determine insertion position
+        const insertBefore = mouseX < centerX;
+        
+        if (insertBefore) {
+            targetItem.parentNode.insertBefore(draggedItem, targetItem);
+        } else {
+            targetItem.parentNode.insertBefore(draggedItem, targetItem.nextSibling);
+        }
+    }
+
+    reorderTaskbarItems(draggedWindowId, targetWindowId) {
+        const draggedItem = this.taskbarItems.querySelector(`[data-window-id="${draggedWindowId}"]`);
+        const targetItem = this.taskbarItems.querySelector(`[data-window-id="${targetWindowId}"]`);
+        
+        if (draggedItem && targetItem) {
+            // Get the position of the target item
+            const targetRect = targetItem.getBoundingClientRect();
+            const draggedRect = draggedItem.getBoundingClientRect();
+            
+            // Determine if we should insert before or after the target
+            const insertAfter = draggedRect.left > targetRect.left;
+            
+            if (insertAfter) {
+                targetItem.parentNode.insertBefore(draggedItem, targetItem.nextSibling);
+            } else {
+                targetItem.parentNode.insertBefore(draggedItem, targetItem);
+            }
+        }
     }
 
     removeFromTaskbar(windowId) {
