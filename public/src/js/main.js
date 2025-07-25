@@ -1,4 +1,4 @@
-console.log('main.js loaded');
+
 import { WindowManager } from './windowManager.js';
 import { TaskbarManager } from './taskbar.js';
 import { IconManager } from './icons.js';

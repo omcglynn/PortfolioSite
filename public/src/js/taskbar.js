@@ -12,7 +12,7 @@ export class TaskbarManager {
 
     saveTaskbarOrder() {
         const order = Array.from(this.taskbarItems.children).map(item => item.dataset.windowId);
-        console.log('[TaskbarManager] Saving taskbar order:', order);
+
         localStorage.setItem('xp-taskbar-order', JSON.stringify(order));
     }
 
@@ -20,7 +20,7 @@ export class TaskbarManager {
         const orderStr = localStorage.getItem('xp-taskbar-order');
         if (!orderStr) return;
         const order = JSON.parse(orderStr);
-        console.log('[TaskbarManager] Restoring taskbar order:', order);
+
 
         // Build a map of current items
         const items = {};
@@ -48,7 +48,7 @@ export class TaskbarManager {
 
         // Debug: log current DOM order
         const currentOrder = Array.from(this.taskbarItems.children).map(item => item.dataset.windowId);
-        console.log('[TaskbarManager] Current DOM taskbar order:', currentOrder);
+
         this.isInitializing = false; // Set to false after restoration
     }
 
@@ -65,7 +65,7 @@ export class TaskbarManager {
     addToTaskbar(windowId, window) {
         const existing = this.taskbarItems.querySelector(`[data-window-id="${windowId}"]`);
         if (existing) {
-            console.log(`[TaskbarManager] Taskbar item for '${windowId}' already exists, not re-appending.`);
+
             return;
         }
         const taskbarItem = document.createElement('div');
@@ -152,7 +152,7 @@ export class TaskbarManager {
             }
         });
         this.taskbarItems.appendChild(taskbarItem);
-        console.log(`[TaskbarManager] Appended new taskbar item for '${windowId}'.`);
+
         if (!this.isInitializing) {
             this.saveTaskbarOrder();
         }
