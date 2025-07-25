@@ -37,6 +37,22 @@ document.addEventListener('DOMContentLoaded', () => {
     docViewer: docViewer,
     borderColor: '#4A9EFF'
   });
+
+  // Betabreak image viewer
+  const betabreakContainer = document.getElementById('betabreak-image-viewer');
+  if (betabreakContainer) betabreakContainer.classList.add('xp-image-viewer-float');
+  const betabreakAssets = [
+    '/assets/images/projects/betabreak/home.png',
+    '/assets/images/projects/betabreak/editHold.png',
+    '/assets/images/projects/betabreak/generateBeta.png',
+    '/assets/images/projects/betabreak/viewMoves.png',
+  ];
+  new XPImageViewer({
+    container: '#betabreak-image-viewer',
+    assets: betabreakAssets,
+    docViewer: docViewer,
+    borderColor: '#4A9EFF'
+  });
   const explorerManager = new ExplorerManager({ docViewer });
   const contactFormManager = new ContactFormManager();
 
