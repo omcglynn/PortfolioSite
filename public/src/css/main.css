@@ -7,6 +7,7 @@
 @import './explorer.css'; 
 @import './xpImageViewer.css';
 @import './quest.css';
+@import './dialog.css';
 
 @font-face {
   font-family: 'FSTahoma8px';
