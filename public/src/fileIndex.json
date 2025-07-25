@@ -301,12 +301,6 @@
           "children": [
             {
               "type": "file",
-              "name": "ASSETS_NEEDED.txt",
-              "path": "images/windows/ASSETS_NEEDED.txt",
-              "ext": "txt"
-            },
-            {
-              "type": "file",
               "name": "betabreak.png",
               "path": "images/windows/betabreak.png",
               "ext": "png"
