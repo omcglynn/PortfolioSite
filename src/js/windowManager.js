@@ -135,9 +135,9 @@ export class WindowManager {
             const defaults = {
                 about:  { width: 780, height: 800, left: 300,  top: 20 },
                 contact: { width: 525, height: 550, left: 950, top: 120 },
-                project1: { width: 550, height: 720, left: 180, top: 80 },
+                project1: { width: 550, height: 735, left: 180, top: 80 },
                 project2: { width: 1000, height: 425, left: 220, top: 120 },
-                project3: { width: 925, height: 625, left: 260, top: 160 },
+                project3: { width: 925, height: 630, left: 260, top: 160 },
                 project4: { width: 250, height: 500, left: 300, top: 200 },
                 quest: { width: 410, height: 560, left: 515, top: 150 },
             };
