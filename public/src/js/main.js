@@ -1,8 +1,10 @@
+console.log('main.js loaded');
 import { WindowManager } from './windowManager.js';
 import { TaskbarManager } from './taskbar.js';
 import { IconManager } from './icons.js';
 import { DocViewer, setupDocViewerLinks } from './docviewer.js';
 import { ContactFormManager } from './contactForm.js';
+import { ExplorerManager } from './explorer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Set desktop background image (XP look)
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   taskbarManager.windowManager = windowManager;
   const iconManager = new IconManager();
   const docViewer = new DocViewer(undefined, windowManager);
+  const explorerManager = new ExplorerManager({ docViewer });
   const contactFormManager = new ContactFormManager();
 
   // Attach windowManager to each window for icon double-click integration
@@ -89,23 +92,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3. Contact form (mailto: integration)
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(contactForm);
-      const name = formData.get('name');
-      const email = formData.get('email');
-      const subject = formData.get('subject');
-      const message = formData.get('message');
-      const mailtoLink = `mailto:oemcgl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-      )}`;
-      window.location.href = mailtoLink;
-      alert('Opening your email client to send the message!');
-      contactForm.reset();
-    });
-  }
+  // const contactForm = document.getElementById('contact-form');
+  // if (contactForm) {
+  //   contactForm.addEventListener('submit', (e) => {
+  //     e.preventDefault();
+  //     const formData = new FormData(contactForm);
+  //     const name = formData.get('name');
+  //     const email = formData.get('email');
+  //     const subject = formData.get('subject');
+  //     const message = formData.get('message');
+  //     const mailtoLink = `mailto:oemcgl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+  //       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+  //     )}`;
+  //     window.location.href = mailtoLink;
+  //     alert('Opening your email client to send the message!');
+  //     contactForm.reset();
+  //   });
+  // }
 
   // 4. Keyboard shortcut: Escape closes the frontmost window
   document.addEventListener('keydown', (e) => {

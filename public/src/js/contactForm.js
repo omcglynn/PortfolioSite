@@ -11,9 +11,28 @@ export class ContactFormManager {
 
     handleContactFormSubmit(e) {
         e.preventDefault();
-        // Add form validation and submission logic here
-        // For now, just show a success message
-        alert('Message sent! (Demo)');
-        this.form.reset();
+
+        const formData = new FormData(this.form);
+
+        fetch(this.form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Message sent! Thank you for contacting me.');
+                this.form.reset();
+            } else {
+                response.json().then(data => {
+                    alert(data.error || 'Oops! There was a problem submitting your form.');
+                });
+            }
+        })
+        .catch(error => {
+            alert('Oops! There was a problem submitting your form.');
+        });
     }
 } 

@@ -1,0 +1,229 @@
+{
+  "type": "folder",
+  "name": "assets",
+  "path": "",
+  "children": [
+    {
+      "type": "folder",
+      "name": "documents",
+      "path": "documents",
+      "children": [
+        {
+          "type": "file",
+          "name": "aCert.pdf",
+          "path": "documents/aCert.pdf",
+          "ext": "pdf"
+        },
+        {
+          "type": "file",
+          "name": "betabreak.pdf",
+          "path": "documents/betabreak.pdf",
+          "ext": "pdf"
+        },
+        {
+          "type": "file",
+          "name": "resume.pdf",
+          "path": "documents/resume.pdf",
+          "ext": "pdf"
+        },
+        {
+          "type": "file",
+          "name": "secCert.pdf",
+          "path": "documents/secCert.pdf",
+          "ext": "pdf"
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "images",
+      "path": "images",
+      "children": [
+        {
+          "type": "folder",
+          "name": "backgrounds",
+          "path": "images/backgrounds",
+          "children": [
+            {
+              "type": "file",
+              "name": "desktop-background.png",
+              "path": "images/backgrounds/desktop-background.png",
+              "ext": "png"
+            }
+          ]
+        },
+        {
+          "type": "folder",
+          "name": "icons",
+          "path": "images/icons",
+          "children": [
+            {
+              "type": "file",
+              "name": "about-me.png",
+              "path": "images/icons/about-me.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "ai-ico.png",
+              "path": "images/icons/ai-ico.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "betabreak-ico.png",
+              "path": "images/icons/betabreak-ico.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "contact.png",
+              "path": "images/icons/contact.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "docViewer.png",
+              "path": "images/icons/docViewer.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "my-computer.png",
+              "path": "images/icons/my-computer.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "my-documents.png",
+              "path": "images/icons/my-documents.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "myMusic.png",
+              "path": "images/icons/myMusic.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "myPics.png",
+              "path": "images/icons/myPics.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "myVids.png",
+              "path": "images/icons/myVids.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "network-places.png",
+              "path": "images/icons/network-places.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "projects.png",
+              "path": "images/icons/projects.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "recycle-bin.png",
+              "path": "images/icons/recycle-bin.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "storme-ico.png",
+              "path": "images/icons/storme-ico.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "txt.png",
+              "path": "images/icons/txt.png",
+              "ext": "png"
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "name": "profilePic.png",
+          "path": "images/profilePic.png",
+          "ext": "png"
+        },
+        {
+          "type": "folder",
+          "name": "tech",
+          "path": "images/tech",
+          "children": [
+            {
+              "type": "file",
+              "name": "python.png",
+              "path": "images/tech/python.png",
+              "ext": "png"
+            }
+          ]
+        },
+        {
+          "type": "folder",
+          "name": "windows",
+          "path": "images/windows",
+          "children": [
+            {
+              "type": "file",
+              "name": "ASSETS_NEEDED.txt",
+              "path": "images/windows/ASSETS_NEEDED.txt",
+              "ext": "txt"
+            },
+            {
+              "type": "file",
+              "name": "betabreak.png",
+              "path": "images/windows/betabreak.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "start-button.png",
+              "path": "images/windows/start-button.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "storme.png",
+              "path": "images/windows/storme.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "window-about.png",
+              "path": "images/windows/window-about.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "window-contact.png",
+              "path": "images/windows/window-contact.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "window-project.png",
+              "path": "images/windows/window-project.png",
+              "ext": "png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "sounds",
+      "path": "sounds",
+      "children": []
+    }
+  ]
+}
