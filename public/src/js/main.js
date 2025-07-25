@@ -127,6 +127,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  const contactInfoBtn = document.getElementById('open-contact-info');
+  const contactInfoWindow = document.getElementById('window-contactinfo');
+  if (contactInfoBtn && contactInfoWindow && contactInfoWindow.windowManager) {
+    contactInfoBtn.addEventListener('click', () => {
+      contactInfoWindow.windowManager.openWindow(contactInfoWindow, 'contactinfo');
+    });
+  }
+
   // Wire up DocViewer link interception
   setupDocViewerLinks(docViewer, windowManager);
 }); 
