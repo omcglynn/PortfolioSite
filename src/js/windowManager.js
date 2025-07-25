@@ -131,7 +131,7 @@ export class WindowManager {
                 project1: { width: 550, height: 700, left: 180, top: 80 },
                 project2: { width: 1000, height: 425, left: 220, top: 120 },
                 project3: { width: 1000, height: 600, left: 260, top: 160 },
-                project4: { width: 250, height: 500, left: 260, top: 160 },
+                project4: { width: 250, height: 500, left: 300, top: 200 },
             };
             const def = defaults[windowId] || { width: 500, height: 400, left: 100, top: 100 };
             const margin = 20;

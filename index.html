@@ -54,7 +54,7 @@
             <div class="icon-image" style="background-image: url('/assets/images/icons/network-places.png');"></div>
             <div class="icon-label">My Network Places</div>
         </div>
-        <div class="desktop-icon desktop-shortcut" style="top: 320px; left: 20px;">
+        <div class="desktop-icon desktop-shortcut" data-window="recyclebin" style="top: 320px; left: 20px;">
             <div class="icon-image" style="background-image: url('/assets/images/icons/recycle-bin.png');"></div>
             <div class="icon-label">Recycle Bin</div>
         </div>
@@ -407,7 +407,60 @@ GitHub: github.com/omcglynn
             </div>
             <div class="xp-resize-handle"></div>
         </div>
+        <div class="xp-window" id="window-recyclebin">
+            <div class="xp-title-bar">
+                <div class="xp-window-title">
+                    <div class="xp-window-icon" style="background-image: url('/assets/images/icons/recycle-bin.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                    <span>Recycle Bin</span>
+                </div>
+                <div class="xp-window-controls">
+                    <div class="xp-control-btn xp-minimize-btn">_</div>
+                    <div class="xp-control-btn xp-maximize-btn">□</div>
+                    <div class="xp-control-btn xp-close-btn">×</div>
+                </div>
+            </div>
+            <div class="xp-window-content explorer-content">
+                <div class="explorer-menubar">
+                  <button class="explorer-btn" id="recyclebin-back" title="Back"><span>&lt;</span></button>
+                  <button class="explorer-btn" id="recyclebin-forward" title="Forward"><span>&gt;</span></button>
+                  <button class="explorer-btn" id="recyclebin-up" title="Up"><span>Up</span></button>
+                  <span>File</span>
+                  <span>Edit</span>
+                  <span>View</span>
+                  <span>Favorites</span>
+                  <span>Tools</span>
+                  <span>Help</span>
+                </div>
+                <div class="explorer-list-container">
+                  <div class="explorer-list-panel">
+                    <div id="recyclebin-list"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="xp-resize-handle"></div>
+        </div>
     </main>
+    <div id="xp-bsod-overlay" style="display:none; position:fixed; z-index:99999; top:0; left:0; width:100vw; height:100vh; background:#0000AA; color:white; font-family:'Lucida Console',monospace; font-size:20px; line-height:1.5; text-align:left; padding:0; margin:0;">
+      <div style="position:absolute; top:0; left:0; width:100vw; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <div style="max-width:96vw; max-height:90vh; overflow:auto; background:rgba(0,0,0,0.7); padding:40px 32px 32px 32px; border-radius:12px; box-shadow:0 0 32px #000; border:2px solid #fff;">
+          <div style="font-size:32px; font-weight:bold; margin-bottom:24px; color:#fff;">A problem has been detected and Windows has been shut down to prevent damage to your computer.</div>
+          <div style="margin-bottom:24px; color:#fff;">
+            <span style="color:#fff;">*** STOP: 0x0000007E (0xC0000005, 0xF7A8A0B0, 0xF7A8A2B4, 0xF7A8A1B0)</span><br><br>
+            If this is the first time you've seen this Stop error screen, restart your computer. If this screen appears again, follow these steps:<br><br>
+            Check to make sure any new hardware or software is properly installed.<br>
+            If this is a new installation, ask your hardware or software manufacturer for any Windows XP updates you might need.<br><br>
+            If problems continue, disable or remove any newly installed hardware or software. Disable BIOS memory options such as caching or shadowing.<br>
+            If you need to use Safe Mode to remove or disable components, restart your computer, press F8 to select Advanced Startup Options, and then select Safe Mode.<br><br>
+            Technical information:<br>
+            *** STOP: 0x0000007E (0xC0000005, 0xF7A8A0B0, 0xF7A8A2B4, 0xF7A8A1B0)
+          </div>
+          <button id="bsod-escape-btn" style="margin-top:24px; font-size:20px; background:#fff; color:#0000AA; border:2px solid #fff; border-radius:6px; padding:8px 32px; cursor:pointer; font-family:'Lucida Console',monospace;">jk lol</button>
+        </div>
+      </div>
+    </div>
+    <audio id="bsod-error-audio" src="/assets/sounds/error.mp3" preload="auto"></audio>
+    <audio id="bonzi-hello-audio" src="/assets/sounds/bonzi-buddy-hello.mp3" preload="auto"></audio>
+    <audio id="bonzi-no-audio" src="/assets/sounds/bonzi-buddy-no.mp3" preload="auto"></audio>
     <!-- Windows XP Taskbar -->
     <div class="xp-taskbar">
         <div class="xp-start-button">restart</div>

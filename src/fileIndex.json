@@ -330,7 +330,26 @@
       "type": "folder",
       "name": "sounds",
       "path": "sounds",
-      "children": []
+      "children": [
+        {
+          "type": "file",
+          "name": "bonzi-buddy-hello.mp3",
+          "path": "sounds/bonzi-buddy-hello.mp3",
+          "ext": "mp3"
+        },
+        {
+          "type": "file",
+          "name": "bonzi-buddy-no.mp3",
+          "path": "sounds/bonzi-buddy-no.mp3",
+          "ext": "mp3"
+        },
+        {
+          "type": "file",
+          "name": "error.mp3",
+          "path": "sounds/error.mp3",
+          "ext": "mp3"
+        }
+      ]
     }
   ]
 }
