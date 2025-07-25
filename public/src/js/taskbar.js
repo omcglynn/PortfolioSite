@@ -32,6 +32,7 @@ export class TaskbarManager {
             case 'project2': iconImageUrl = '/assets/images/windows/storme.png'; break;
             case 'project3': iconImageUrl = '/assets/images/icons/ai-ico.png'; break;
             case 'contactinfo': iconImageUrl = '/assets/images/icons/txt.png'; break;
+            case 'project4': iconImageUrl = '/assets/images/icons/cyberpaper.png'; break;
             default: iconImageUrl = '';
         }
         const iconStyle = iconImageUrl ? `background-image: url('${iconImageUrl}'); background-size: contain; background-repeat: no-repeat; background-position: center;` : '';

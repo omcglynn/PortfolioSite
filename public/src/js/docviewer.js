@@ -81,6 +81,17 @@ export class DocViewer {
 
     setActiveTab(id) {
         this.activeTab = this.tabs.find(tab => tab.id === id);
+        // BonziBuddy sound logic
+        const bonziHello = document.getElementById('bonzi-hello-audio');
+        if (bonziHello) {
+          if (this.activeTab && this.activeTab.name && this.activeTab.name.toLowerCase() === 'bonzibud.png') {
+            bonziHello.currentTime = 0;
+            bonziHello.play();
+          } else {
+            bonziHello.pause();
+            bonziHello.currentTime = 0;
+          }
+        }
         this.renderTabs();
         this.renderContent();
         this.saveTabsToStorage();
@@ -90,6 +101,15 @@ export class DocViewer {
         const idx = this.tabs.findIndex(tab => tab.id === id);
         if (idx !== -1) {
             this.tabs.splice(idx, 1);
+            // Stop BonziBuddy hello and play 'no' if closing its tab
+            const bonziHello = document.getElementById('bonzi-hello-audio');
+            const bonziNo = document.getElementById('bonzi-no-audio');
+            if (bonziHello && bonziNo && this.activeTab && this.activeTab.name && this.activeTab.name.toLowerCase().includes('bonzi')) {
+                bonziHello.pause();
+                bonziHello.currentTime = 0;
+                bonziNo.currentTime = 0;
+                bonziNo.play();
+            }
             if (this.activeTab && this.activeTab.id === id) {
                 if (this.tabs.length > 0) {
                     this.setActiveTab(this.tabs[Math.max(0, idx - 1)].id);
@@ -217,6 +237,18 @@ export class DocViewer {
 
     hide() {
         this.window.style.display = 'none';
+        // Play BonziBuddy 'no' if any open tab is bonziBuddy
+        const bonziHello = document.getElementById('bonzi-hello-audio');
+        const bonziNo = document.getElementById('bonzi-no-audio');
+        const hasBonziTab = this.tabs.some(tab => tab.name && tab.name.toLowerCase().includes('bonzi'));
+        if (bonziHello) {
+            bonziHello.pause();
+            bonziHello.currentTime = 0;
+        }
+        if (bonziNo && hasBonziTab) {
+            bonziNo.currentTime = 0;
+            bonziNo.play();
+        }
     }
 }
 

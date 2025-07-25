@@ -66,6 +66,16 @@ document.addEventListener('DOMContentLoaded', () => {
     docViewer: docViewer,
     borderColor: '#4A9EFF'
   });
+  // Recycle Bin explorer
+  new ExplorerManager({
+    explorerWindowId: 'window-recyclebin',
+    listContainerId: 'recyclebin-list',
+    backBtnId: 'recyclebin-back',
+    forwardBtnId: 'recyclebin-forward',
+    upBtnId: 'recyclebin-up',
+    fileIndexPath: '/src/recycleBinIndex.json',
+    docViewer: docViewer
+  });
   const explorerManager = new ExplorerManager({ docViewer });
   const contactFormManager = new ContactFormManager();
 
@@ -135,24 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Contact form (mailto: integration)
-  // const contactForm = document.getElementById('contact-form');
-  // if (contactForm) {
-  //   contactForm.addEventListener('submit', (e) => {
-  //     e.preventDefault();
-  //     const formData = new FormData(contactForm);
-  //     const name = formData.get('name');
-  //     const email = formData.get('email');
-  //     const subject = formData.get('subject');
-  //     const message = formData.get('message');
-  //     const mailtoLink = `mailto:oemcgl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-  //       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-  //     )}`;
-  //     window.location.href = mailtoLink;
-  //     alert('Opening your email client to send the message!');
-  //     contactForm.reset();
-  //   });
-  // }
 
   // 4. Keyboard shortcut: Escape closes the frontmost window
   document.addEventListener('keydown', (e) => {
@@ -181,4 +173,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Wire up DocViewer link interception
   setupDocViewerLinks(docViewer, windowManager);
+
+  // Patch: Ensure DocViewer.hide() is called when the window is closed
+  const docViewerWindow = document.getElementById('window-docviewer');
+  if (docViewerWindow) {
+    const closeBtn = docViewerWindow.querySelector('.xp-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        if (docViewer && typeof docViewer.hide === 'function') {
+          docViewer.hide();
+        }
+      });
+    }
+  }
+
+  // BSOD for My Network Places
+  const myNetworkPlacesIcon = Array.from(document.querySelectorAll('.desktop-icon')).find(icon => {
+    const label = icon.querySelector('.icon-label');
+    return label && label.textContent.trim() === 'My Network Places';
+  });
+  const bsodOverlay = document.getElementById('xp-bsod-overlay');
+  const bsodEscapeBtn = document.getElementById('bsod-escape-btn');
+  const bsodAudio = document.getElementById('bsod-error-audio');
+  if (myNetworkPlacesIcon && bsodOverlay && bsodEscapeBtn) {
+    myNetworkPlacesIcon.addEventListener('dblclick', () => {
+      bsodOverlay.style.display = 'block';
+      if (bsodAudio) {
+        bsodAudio.currentTime = 0;
+        bsodAudio.play();
+      }
+    });
+    bsodEscapeBtn.addEventListener('click', () => {
+      bsodOverlay.style.display = 'none';
+      if (bsodAudio) {
+        bsodAudio.pause();
+        bsodAudio.currentTime = 0;
+      }
+    });
+  }
 }); 

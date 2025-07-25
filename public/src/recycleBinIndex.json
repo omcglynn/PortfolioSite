@@ -1,0 +1,13 @@
+{
+  "type": "folder",
+  "name": "trash",
+  "path": "trash",
+  "children": [
+    {
+      "type": "file",
+      "name": "bonziBud.png",
+      "path": "trash/bonziBud.png",
+      "ext": "png"
+    }
+  ]
+}
