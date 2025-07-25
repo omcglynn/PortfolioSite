@@ -25,6 +25,8 @@
 
 .xp-image-viewer-media {
   display: block;
+  width: 100%;
+  height: auto;
   max-width: 100%;
   max-height: 100%;
   margin: 0 auto;
@@ -90,18 +92,37 @@
   box-shadow: none;
 }
 
-.xp-image-viewer-float {
+.betabreak-image-viewer {
+  float: center;
+  margin: 16px auto 16px auto;
+  width: 100%;
+  max-width: 500px;
+  min-width: 180px;
+  min-height: 120px;
+}
+
+.storme-image-viewer {
     float: right;
-    margin: 2px 8px 4px 0;
-    min-width: 300px;
-    min-height: 180px;
-    max-width: 300px;
-    max-height: 300px;
+    margin: 16px auto 16px auto;
+  width: 100%;
+  max-width: 500px;
+  min-width: 180px;
+  min-height: 120px;
+  max-height: 350px;
+}
+
+.xp-image-viewer-float {
+
+  width: 100%;
+  max-width: 500px;
+  min-width: 180px;
+  min-height: 120px;
+  max-height: 350px;
 }
 
 .xp-image-viewer-container.xp-image-viewer-float {
   display: block;
-  width: auto;
+  width: 100%;
   height: auto;
   background: none;
   align-items: unset;
@@ -109,10 +130,11 @@
 }
 
 .xp-image-viewer-float .xp-image-viewer {
-  min-width: 300px;
-  min-height: 180px;
-  max-width: 300px;
-  max-height: 300px;
+  width: 100%;
+  max-width: 500px;
+  min-width: 120px;
+  min-height: 120px;
+  max-height: 350px;
 }
 
 .xp-window-content::after {
