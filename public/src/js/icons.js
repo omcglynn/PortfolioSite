@@ -125,6 +125,14 @@ export class IconManager {
 
     handleIconDoubleClick(icon) {
         const windowId = icon.dataset.window;
+        // Special case: My Computer icon opens Portfolio Quest
+        if (icon.classList.contains('desktop-shortcut') && icon.querySelector('.icon-label')?.textContent.trim() === 'My Computer') {
+            const questWindow = document.getElementById('window-quest');
+            if (questWindow && questWindow.windowManager) {
+                questWindow.windowManager.openWindow(questWindow, 'quest');
+            }
+            return;
+        }
         const windowElem = document.getElementById(`window-${windowId}`);
         if (windowElem && windowElem.windowManager) {
             windowElem.windowManager.openWindow(windowElem, windowId);

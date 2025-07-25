@@ -6,6 +6,7 @@ import { DocViewer, setupDocViewerLinks } from './docviewer.js';
 import { ContactFormManager } from './contactForm.js';
 import { ExplorerManager } from './explorer.js';
 import { XPImageViewer } from './xpImageViewer.js';
+import { QuestManager } from './questManager.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Set desktop background image (XP look)
@@ -78,6 +79,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   const explorerManager = new ExplorerManager({ docViewer });
   const contactFormManager = new ContactFormManager();
+  const questManager = new QuestManager({
+    windowId: 'window-quest',
+    projectWindowIds: ['project1', 'project2', 'project3', 'project4'],
+    allWindowIds: [
+      'about', 'project1', 'project2', 'project3', 'project4',
+      'contact', 'contactinfo', 'explorer', 'recyclebin', 'docviewer', 'quest'
+    ],
+    resumeLinkSelector: 'a[href$="resume.pdf"]',
+    docViewerWindowId: 'window-docviewer',
+    bsodOverlayId: 'xp-bsod-overlay',
+    bonziAudioId: 'bonzi-hello-audio',
+    taskbarItemsId: 'taskbar-items',
+  });
 
   // Attach windowManager to each window for icon double-click integration
   windows.forEach(win => { win.windowManager = windowManager; });
@@ -91,16 +105,51 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) {
       windowStates = {};
     }
-    windows.forEach(winElem => {
-      const winId = winElem.id.replace('window-', '');
-      let shouldOpen;
-      let shouldMinimize = false;
+    // Get saved zOrder or default order
+    let zOrder = [];
+    try {
+      const savedOrder = localStorage.getItem('xp-window-zorder');
+      zOrder = savedOrder ? JSON.parse(savedOrder) : [];
+    } catch (e) {
+      zOrder = [];
+    }
+    // Open windows in zOrder, then the rest
+    const opened = new Set();
+    zOrder.forEach(winId => {
+      const winElem = document.getElementById('window-' + winId);
+      if (!winElem) return;
+      let shouldOpen, shouldMinimize = false;
       if (windowStates.hasOwnProperty(winId)) {
         const state = windowStates[winId];
         shouldOpen = state.open;
         shouldMinimize = state.minimized || false;
       } else {
-        // Default: About and Contact open, others closed
+        shouldOpen = (winId === 'about' || winId === 'contact');
+        shouldMinimize = false;
+      }
+      if (shouldOpen) {
+        windowManager.openWindow(winElem, winId);
+        if (shouldMinimize) {
+          winElem.style.display = 'none';
+          windowStates[winId] = { open: true, minimized: true };
+        }
+      } else {
+        winElem.classList.remove('active');
+        winElem.style.display = 'none';
+        windowManager.openWindows.delete(winId);
+      }
+      opened.add(winId);
+    });
+    // Open any windows not in zOrder
+    windows.forEach(winElem => {
+      const winId = winElem.id.replace('window-', '');
+      if (opened.has(winId)) return;
+      let shouldOpen, shouldMinimize = false;
+      if (windowStates.hasOwnProperty(winId)) {
+        const state = windowStates[winId];
+        shouldOpen = state.open;
+        shouldMinimize = state.minimized || false;
+      } else {
         shouldOpen = (winId === 'about' || winId === 'contact');
         shouldMinimize = false;
       }
@@ -120,6 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
   restoreWindowStates();
   // Restore z-order after restoring window states
   windowManager.restoreZOrder();
+  // Restore taskbar order after all windows and taskbar items are created (defer to ensure DOM is ready)
+  setTimeout(() => taskbarManager.restoreTaskbarOrder(), 0);
 
   // 1. Taskbar clock (real-time updating)
   function updateClock() {

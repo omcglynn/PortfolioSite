@@ -26,6 +26,7 @@ export class WindowManager {
 
     // Save all window state to localStorage
     saveAllState() {
+        // console.log('[WindowManager] Saving state. zOrder:', this.zOrder);
         localStorage.setItem('xp-window-positions', JSON.stringify(this.windowPositions));
         localStorage.setItem('xp-window-states', JSON.stringify(this.windowStates));
         localStorage.setItem('xp-window-zorder', JSON.stringify(this.zOrder));
@@ -69,6 +70,12 @@ export class WindowManager {
             }
         });
         this.zIndexCounter = z;
+        // Debug: log current z-indices
+        // Array.from(this.windows).forEach(w => {
+        //     if (w.classList.contains('active') && w.style.display !== 'none') {
+        //         console.log(`[WindowManager] ${w.id} zIndex:`, w.style.zIndex);
+        //     }
+        // });
     }
 
     init() {
@@ -126,12 +133,13 @@ export class WindowManager {
             this.restoreWindowPosition(window, windowId);
         } else {
             const defaults = {
-                about:  { width: 750, height: 800, left: 300,  top: 20 },
-                contact: { width: 500, height: 550, left: 950, top: 120 },
-                project1: { width: 550, height: 700, left: 180, top: 80 },
+                about:  { width: 780, height: 800, left: 300,  top: 20 },
+                contact: { width: 525, height: 550, left: 950, top: 120 },
+                project1: { width: 550, height: 720, left: 180, top: 80 },
                 project2: { width: 1000, height: 425, left: 220, top: 120 },
-                project3: { width: 1000, height: 600, left: 260, top: 160 },
+                project3: { width: 925, height: 625, left: 260, top: 160 },
                 project4: { width: 250, height: 500, left: 300, top: 200 },
+                quest: { width: 410, height: 560, left: 515, top: 150 },
             };
             const def = defaults[windowId] || { width: 500, height: 400, left: 100, top: 100 };
             const margin = 20;
@@ -147,6 +155,8 @@ export class WindowManager {
             window.style.top = def.top + 'px';
         }
         this.saveAllState();
+        // Dispatch custom 'show' event for quest tracking
+        window.dispatchEvent(new CustomEvent('show'));
     }
 
     closeWindow(window) {
@@ -293,7 +303,11 @@ export class WindowManager {
             const titleBar = w.querySelector('.xp-title-bar');
             titleBar.classList.toggle('inactive', w !== window);
         });
-        this.saveZOrder();
+        // Update zOrder to move this window to the front
+        const winId = window.id.replace('window-', '');
+        this.zOrder = this.zOrder.filter(id => id !== winId);
+        this.zOrder.push(winId);
+        this.saveAllState();
     }
 
     centerWindow(window) {
