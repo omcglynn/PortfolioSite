@@ -1,5 +1,7 @@
 import { DocViewer } from './docviewer.js';
 
+const EXPLORER_PATH_KEY = 'xp-explorer-path';
+
 export class ExplorerManager {
   constructor({
     explorerWindowId = 'window-explorer',
@@ -32,7 +34,13 @@ export class ExplorerManager {
     try {
       const res = await fetch(this.fileIndexPath);
       this.root = await res.json();
-      this.setDir([]); // Start at root
+      // Restore last path from localStorage if available
+      let lastPath = [];
+      try {
+        const stored = localStorage.getItem(EXPLORER_PATH_KEY);
+        if (stored) lastPath = JSON.parse(stored);
+      } catch (e) { lastPath = []; }
+      this.setDir(lastPath); // Start at last path or root
       this.backBtn.addEventListener('click', () => this.goBack());
       this.forwardBtn.addEventListener('click', () => this.goForward());
       this.upBtn.addEventListener('click', () => this.goUp());
@@ -43,6 +51,10 @@ export class ExplorerManager {
 
   setDir(pathArr, pushHistory = true) {
     this.currentDir = pathArr;
+    // Save current path to localStorage
+    try {
+      localStorage.setItem(EXPLORER_PATH_KEY, JSON.stringify(this.currentDir));
+    } catch (e) {}
     if (pushHistory) {
       this.history = this.history.slice(0, this.historyIndex + 1);
       this.history.push([...pathArr]);
