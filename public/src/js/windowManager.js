@@ -308,6 +308,10 @@ export class WindowManager {
         this.zOrder = this.zOrder.filter(id => id !== winId);
         this.zOrder.push(winId);
         this.saveAllState();
+        // Notify taskbar manager to update active item
+        if (this.taskbarManager && typeof this.taskbarManager.setActiveTaskbarItem === 'function') {
+            this.taskbarManager.setActiveTaskbarItem(winId);
+        }
     }
 
     centerWindow(window) {

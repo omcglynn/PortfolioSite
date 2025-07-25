@@ -52,6 +52,16 @@ export class TaskbarManager {
         this.isInitializing = false; // Set to false after restoration
     }
 
+    setActiveTaskbarItem(windowId) {
+        Array.from(this.taskbarItems.children).forEach(item => {
+            if (item.dataset.windowId === windowId) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
     addToTaskbar(windowId, window) {
         const existing = this.taskbarItems.querySelector(`[data-window-id="${windowId}"]`);
         if (existing) {
@@ -146,6 +156,10 @@ export class TaskbarManager {
         if (!this.isInitializing) {
             this.saveTaskbarOrder();
         }
+        // Set active state if this window is now active
+        if (window.classList.contains('active')) {
+            this.setActiveTaskbarItem(windowId);
+        }
     }
 
     removeFromTaskbar(windowId) {
@@ -199,5 +213,13 @@ export class TaskbarManager {
         targetItem.style.borderLeft = '';
         targetItem.style.borderRight = '';
         this.saveTaskbarOrder();
+    }
+
+    // Update active state on click
+    handleTaskbarClick(windowId) {
+        if (this.windowManager) {
+            this.windowManager.handleTaskbarClick(windowId);
+        }
+        this.setActiveTaskbarItem(windowId);
     }
 } 
