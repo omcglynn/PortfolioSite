@@ -3,7 +3,7 @@
 
 export class WindowManager {
     constructor(windows, taskbarManager) {
-        console.log('WindowManager constructor called');
+        
         this.windows = windows;
         this.zIndexCounter = 100;
         this.isDragging = false;
@@ -365,7 +365,7 @@ export class WindowManager {
     }
 
     handleViewportResize() {
-        console.log('handleViewportResize called');
+
         const margin = 20;
         const taskbar = document.querySelector('.xp-taskbar, .taskbar');
         const taskbarHeight = taskbar ? taskbar.offsetHeight : 20;
@@ -373,7 +373,7 @@ export class WindowManager {
         const maxHeight = globalThis.innerHeight - margin - taskbarHeight;
         this.windows.forEach(winElem => {
             if (!winElem.classList.contains('active')) return;
-            console.log('Resizing window:', winElem.id);
+    
             let width = winElem.offsetWidth;
             let height = winElem.offsetHeight;
             let left = parseInt(winElem.style.left) || 0;

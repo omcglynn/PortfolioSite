@@ -1,4 +1,4 @@
-console.log('main.js loaded');
+
 import { WindowManager } from './windowManager.js';
 import { TaskbarManager } from './taskbar.js';
 import { IconManager } from './icons.js';
@@ -7,6 +7,7 @@ import { ContactFormManager } from './contactForm.js';
 import { ExplorerManager } from './explorer.js';
 import { XPImageViewer } from './xpImageViewer.js';
 import { QuestManager } from './questManager.js';
+import { DialogManager } from './dialogManager.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Set desktop background image (XP look)
@@ -78,7 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
     docViewer: docViewer
   });
   const explorerManager = new ExplorerManager({ docViewer });
+  const dialogManager = new DialogManager();
   const contactFormManager = new ContactFormManager();
+  contactFormManager.setDialogManager(dialogManager);
   const questManager = new QuestManager({
     windowId: 'window-quest',
     projectWindowIds: ['project1', 'project2', 'project3', 'project4'],
