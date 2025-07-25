@@ -88,7 +88,7 @@ export class QuestManager {
     content.innerHTML = '';
     const title = document.createElement('div');
     title.className = 'quest-title';
-    title.textContent = 'Portfolio Quest';
+    title.textContent = 'Explore My Computer';
     content.appendChild(title);
     const ul = document.createElement('ul');
     ul.className = 'quest-list';
