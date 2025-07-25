@@ -22,6 +22,12 @@
         },
         {
           "type": "file",
+          "name": "cyberResearchPaper.pdf",
+          "path": "documents/cyberResearchPaper.pdf",
+          "ext": "pdf"
+        },
+        {
+          "type": "file",
           "name": "resume.pdf",
           "path": "documents/resume.pdf",
           "ext": "pdf"
@@ -79,6 +85,12 @@
               "type": "file",
               "name": "contact.png",
               "path": "images/icons/contact.png",
+              "ext": "png"
+            },
+            {
+              "type": "file",
+              "name": "cyberpaper.png",
+              "path": "images/icons/cyberpaper.png",
               "ext": "png"
             },
             {
@@ -154,6 +166,101 @@
           "name": "profilePic.png",
           "path": "images/profilePic.png",
           "ext": "png"
+        },
+        {
+          "type": "folder",
+          "name": "projects",
+          "path": "images/projects",
+          "children": [
+            {
+              "type": "folder",
+              "name": "betabreak",
+              "path": "images/projects/betabreak",
+              "children": [
+                {
+                  "type": "file",
+                  "name": "editHold.png",
+                  "path": "images/projects/betabreak/editHold.png",
+                  "ext": "png"
+                },
+                {
+                  "type": "file",
+                  "name": "generateBeta.png",
+                  "path": "images/projects/betabreak/generateBeta.png",
+                  "ext": "png"
+                },
+                {
+                  "type": "file",
+                  "name": "home.png",
+                  "path": "images/projects/betabreak/home.png",
+                  "ext": "png"
+                },
+                {
+                  "type": "file",
+                  "name": "viewMoves.png",
+                  "path": "images/projects/betabreak/viewMoves.png",
+                  "ext": "png"
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "cyberpaper",
+              "path": "images/projects/cyberpaper",
+              "children": [
+                {
+                  "type": "file",
+                  "name": "kyber.png",
+                  "path": "images/projects/cyberpaper/kyber.png",
+                  "ext": "png"
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "neuralnet",
+              "path": "images/projects/neuralnet",
+              "children": [
+                {
+                  "type": "file",
+                  "name": "neuralcomplete.png",
+                  "path": "images/projects/neuralnet/neuralcomplete.png",
+                  "ext": "png"
+                },
+                {
+                  "type": "file",
+                  "name": "neuralcomplete2.png",
+                  "path": "images/projects/neuralnet/neuralcomplete2.png",
+                  "ext": "png"
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "storme",
+              "path": "images/projects/storme",
+              "children": [
+                {
+                  "type": "file",
+                  "name": "homepage.png",
+                  "path": "images/projects/storme/homepage.png",
+                  "ext": "png"
+                },
+                {
+                  "type": "file",
+                  "name": "listing.png",
+                  "path": "images/projects/storme/listing.png",
+                  "ext": "png"
+                },
+                {
+                  "type": "file",
+                  "name": "rentalList.png",
+                  "path": "images/projects/storme/rentalList.png",
+                  "ext": "png"
+                }
+              ]
+            }
+          ]
         },
         {
           "type": "folder",

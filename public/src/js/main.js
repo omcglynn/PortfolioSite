@@ -53,6 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
     docViewer: docViewer,
     borderColor: '#4A9EFF'
   });
+  // AI project image viewer
+  const aiContainer = document.getElementById('ai-image-viewer');
+  if (aiContainer) aiContainer.classList.add('xp-image-viewer-float');
+  const aiAssets = [
+    '/assets/images/projects/neuralnet/neuralcomplete.png',
+    '/assets/images/projects/neuralnet/neuralcomplete2.png'
+  ];
+  new XPImageViewer({
+    container: '#ai-image-viewer',
+    assets: aiAssets,
+    docViewer: docViewer,
+    borderColor: '#4A9EFF'
+  });
   const explorerManager = new ExplorerManager({ docViewer });
   const contactFormManager = new ContactFormManager();
 
