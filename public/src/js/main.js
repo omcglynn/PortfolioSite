@@ -5,6 +5,7 @@ import { IconManager } from './icons.js';
 import { DocViewer, setupDocViewerLinks } from './docviewer.js';
 import { ContactFormManager } from './contactForm.js';
 import { ExplorerManager } from './explorer.js';
+import { XPImageViewer } from './xpImageViewer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Set desktop background image (XP look)
@@ -22,6 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
   taskbarManager.windowManager = windowManager;
   const iconManager = new IconManager();
   const docViewer = new DocViewer(undefined, windowManager);
+  // Storme image viewer
+  const stormeContainer = document.getElementById('storme-image-viewer');
+  if (stormeContainer) stormeContainer.classList.add('xp-image-viewer-float');
+  const stormeAssets = [
+    '/assets/images/projects/storme/homepage.png',
+    '/assets/images/projects/storme/listing.png',
+    '/assets/images/projects/storme/rentalList.png'
+  ];
+  new XPImageViewer({
+    container: '#storme-image-viewer',
+    assets: stormeAssets,
+    docViewer: docViewer,
+    borderColor: '#4A9EFF'
+  });
   const explorerManager = new ExplorerManager({ docViewer });
   const contactFormManager = new ContactFormManager();
 
