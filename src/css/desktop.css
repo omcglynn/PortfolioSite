@@ -20,7 +20,6 @@ body {
     --xp-taskbar: #245EDC;
     --xp-window-bg: #ECE9D8;
     --xp-text: #000000;
-    font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
     background: linear-gradient(45deg, #39A96B 0%, #4A9EFF 100%);
     background-image: 
         radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),

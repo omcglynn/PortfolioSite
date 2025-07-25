@@ -55,6 +55,10 @@ export class DocViewer {
         this.downloadBtn.addEventListener('click', () => {
             if (this.activeTab) {
                 window.open(this.activeTab.url, '_blank');
+                // Dispatch event only if resume.pdf is being downloaded
+                if (this.activeTab.url.toLowerCase().includes('resume.pdf')) {
+                    document.dispatchEvent(new CustomEvent('docviewer:downloadresume'));
+                }
             }
         });
     }
@@ -77,6 +81,8 @@ export class DocViewer {
         this.setActiveTab(id);
         this.saveTabsToStorage();
         if (!skipOpenWindow) this.bringToFront();
+        // Dispatch custom event for quest tracking
+        document.dispatchEvent(new CustomEvent('docviewer:fileopen'));
     }
 
     setActiveTab(id) {

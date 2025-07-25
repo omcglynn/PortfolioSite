@@ -6,3 +6,43 @@
 @import './contact-form.css';
 @import './explorer.css'; 
 @import './xpImageViewer.css';
+@import './quest.css';
+
+@font-face {
+  font-family: 'FSTahoma8px';
+  src: url('/assets/fonts/fs-tahoma-8px.otf.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MSTahomaBold8px';
+  src: url('/assets/fonts/ms-tahoma-bold-8px.otf.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body, .desktop, .xp-window, .quest-title, .quest-list, .quest-label, .xp-window-content, .xp-taskbar, .xp-button {
+  font-family: 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  text-rendering: optimizeSpeed;
+}
+
+strong, b, .quest-title, .quest-list-item.checked .quest-label, .quest-complete-msg {
+  font-size: 11px;
+  font-family: 'MSTahomaBold8px', 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+  font-weight: bold;
+}
+input, textarea, select, button {
+  font-family: 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+  font-size: 1.1em; /* or 16px, or whatever matches your base size */
+  font-weight: normal;
+  /* Optional: for pixel look */
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  text-rendering: optimizeSpeed;
+}

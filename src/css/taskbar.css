@@ -22,7 +22,7 @@
     padding: 0 20px 0 8px;
     color: white;
     font-weight: bold;
-    font-size: 11px;
+    font-size: 1.15em;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@
     border: 1px outset #4A9EFF;
     padding: 0 12px;
     color: white;
-    font-size: 11px;
+    font-size: 1.15em;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -70,14 +70,14 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 11px;
+
     color: white;
     padding-left: 8px;
     border-left: 1px solid #1941A5;
 }
 
 .xp-clock {
-    font-size: 11px;
+    font-size: 1.25em;
     color: white;
 }
 

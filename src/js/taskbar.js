@@ -7,10 +7,55 @@ export class TaskbarManager {
         this.draggedTaskbarItem = null;
         this.draggedWindowId = null;
         this.windowManager = windowManager;
+        this.isInitializing = true;
+    }
+
+    saveTaskbarOrder() {
+        const order = Array.from(this.taskbarItems.children).map(item => item.dataset.windowId);
+        console.log('[TaskbarManager] Saving taskbar order:', order);
+        localStorage.setItem('xp-taskbar-order', JSON.stringify(order));
+    }
+
+    restoreTaskbarOrder() {
+        const orderStr = localStorage.getItem('xp-taskbar-order');
+        if (!orderStr) return;
+        const order = JSON.parse(orderStr);
+        console.log('[TaskbarManager] Restoring taskbar order:', order);
+
+        // Build a map of current items
+        const items = {};
+        Array.from(this.taskbarItems.children).forEach(item => {
+            items[item.dataset.windowId] = item;
+        });
+
+        // Remove all children
+        while (this.taskbarItems.firstChild) {
+            this.taskbarItems.removeChild(this.taskbarItems.firstChild);
+        }
+
+        // Re-append in saved order
+        order.forEach(id => {
+            if (items[id]) {
+                this.taskbarItems.appendChild(items[id]);
+                delete items[id]; // Remove from map so we know what's left
+            }
+        });
+
+        // Append any new items not in saved order
+        Object.values(items).forEach(item => {
+            this.taskbarItems.appendChild(item);
+        });
+
+        // Debug: log current DOM order
+        const currentOrder = Array.from(this.taskbarItems.children).map(item => item.dataset.windowId);
+        console.log('[TaskbarManager] Current DOM taskbar order:', currentOrder);
+        this.isInitializing = false; // Set to false after restoration
     }
 
     addToTaskbar(windowId, window) {
-        if (this.taskbarItems.querySelector(`[data-window-id="${windowId}"]`)) {
+        const existing = this.taskbarItems.querySelector(`[data-window-id="${windowId}"]`);
+        if (existing) {
+            console.log(`[TaskbarManager] Taskbar item for '${windowId}' already exists, not re-appending.`);
             return;
         }
         const taskbarItem = document.createElement('div');
@@ -33,6 +78,10 @@ export class TaskbarManager {
             case 'project3': iconImageUrl = '/assets/images/icons/ai-ico.png'; break;
             case 'contactinfo': iconImageUrl = '/assets/images/icons/txt.png'; break;
             case 'project4': iconImageUrl = '/assets/images/icons/cyberpaper.png'; break;
+            case 'quest': iconImageUrl = '/assets/images/icons/my-computer.png'; break;
+            case 'explorer': iconImageUrl = '/assets/images/icons/my-documents.png'; break;
+            case 'recyclebin': iconImageUrl = '/assets/images/icons/recycle-bin.png'; break;
+            case 'docviewer': iconImageUrl = '/assets/images/icons/docViewer.png'; break;
             default: iconImageUrl = '';
         }
         const iconStyle = iconImageUrl ? `background-image: url('${iconImageUrl}'); background-size: contain; background-repeat: no-repeat; background-position: center;` : '';
@@ -93,11 +142,20 @@ export class TaskbarManager {
             }
         });
         this.taskbarItems.appendChild(taskbarItem);
+        console.log(`[TaskbarManager] Appended new taskbar item for '${windowId}'.`);
+        if (!this.isInitializing) {
+            this.saveTaskbarOrder();
+        }
     }
 
     removeFromTaskbar(windowId) {
         const item = this.taskbarItems.querySelector(`[data-window-id="${windowId}"]`);
-        if (item) this.taskbarItems.removeChild(item);
+        if (item) {
+            this.taskbarItems.removeChild(item);
+            if (!this.isInitializing) {
+                this.saveTaskbarOrder();
+            }
+        }
     }
 
     handleTaskbarDragOver(e, targetItem) {
@@ -140,5 +198,6 @@ export class TaskbarManager {
         targetItem.style.backgroundColor = '';
         targetItem.style.borderLeft = '';
         targetItem.style.borderRight = '';
+        this.saveTaskbarOrder();
     }
 } 

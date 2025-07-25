@@ -1,0 +1,114 @@
+/* Portfolio Quest XP Styles */
+
+.quest-title {
+  font-size: 1.3rem !important;
+  font-weight: bold;
+  color: #0054E3;
+  margin-bottom: 10px;
+  margin-top: 2px;
+  text-shadow: 1px 1px 0 #fff;
+  letter-spacing: 1px;
+  font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+}
+
+.quest-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  background: #f4f2e9;
+  border: 2px inset #b5b5b5;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+  font-size: 1.5em;
+  overflow: hidden;
+}
+.quest-list-item {
+  margin: 0;
+  padding: 14px 18px 14px 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d4d4c9;
+  background: none;
+  font-size: 1em !important;
+  transition: background 0.2s;
+}
+.quest-list-item:last-child {
+  border-bottom: none;
+}
+
+.quest-checkbox {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-right: 16px;
+  margin-left: 16px;
+  border: 2px outset #b5b5b5;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px #ece9d8;
+  position: relative;
+  flex-shrink: 0;
+}
+.quest-checkbox.checked {
+  background: #245EDC;
+  box-shadow: 0 0 0 2px #39A96B inset;
+}
+.quest-checkbox svg {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+.quest-label {
+  color: #222;
+  font-size: 1.15em !important;
+  font-weight: normal;
+  text-shadow: none;
+}
+.quest-list-item.checked .quest-label {
+  color: #0054E3;
+  font-weight: bold;
+  font-size: .9em !important;
+  text-shadow: 1px 1px 0 #fff;
+}
+.quest-progress-wrap {
+  height: 28px;
+  background: linear-gradient(180deg, #ECE9D8 60%, #b5b5b5 100%);
+  border: 2px inset #b5b5b5;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 2px #ece9d8;
+  position: relative;
+  width: 100%;
+}
+.quest-progress-bar {
+  height: 100%;
+  background: #245EDC;
+  transition: width 0.3s;
+  border-right: 2px solid #0054E3;
+}
+.quest-progress-bar.complete {
+  border-right: none;
+}
+.quest-progress-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem !important;
+  font-weight: bold;
+  color: #0054E3;
+  text-shadow: 1px 1px 0 #fff;
+}
+.quest-progress-bar.complete + .quest-progress-text {
+  color: #39A96B;
+}
+.quest-complete-msg {
+  margin-top: 18px;
+  font-weight: bold;
+  color: #245EDC;
+  font-size: 1.3rem !important;
+  text-shadow: 1px 1px 0 #fff;
+  text-align: center;
+} 

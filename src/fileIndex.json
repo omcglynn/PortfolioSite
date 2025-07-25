@@ -42,6 +42,25 @@
     },
     {
       "type": "folder",
+      "name": "fonts",
+      "path": "fonts",
+      "children": [
+        {
+          "type": "file",
+          "name": "fs-tahoma-8px.otf.woff2",
+          "path": "fonts/fs-tahoma-8px.otf.woff2",
+          "ext": "woff2"
+        },
+        {
+          "type": "file",
+          "name": "ms-tahoma-bold-8px.otf.woff2",
+          "path": "fonts/ms-tahoma-bold-8px.otf.woff2",
+          "ext": "woff2"
+        }
+      ]
+    },
+    {
+      "type": "folder",
       "name": "images",
       "path": "images",
       "children": [
@@ -347,6 +366,12 @@
           "type": "file",
           "name": "error.mp3",
           "path": "sounds/error.mp3",
+          "ext": "mp3"
+        },
+        {
+          "type": "file",
+          "name": "tada_1.mp3",
+          "path": "sounds/tada_1.mp3",
           "ext": "mp3"
         }
       ]
