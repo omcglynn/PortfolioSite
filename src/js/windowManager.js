@@ -140,6 +140,9 @@ export class WindowManager {
                 project3: { width: 925, height: 630, left: 260, top: 160 },
                 project4: { width: 250, height: 500, left: 300, top: 200 },
                 quest: { width: 410, height: 560, left: 515, top: 150 },
+                explorer: { width: 770, height: 450, left: 100, top: 100 },
+                recyclebin: { width: 770, height: 450, left: 140, top: 140 },
+                docviewer: { width: 900, height: 600, left: 180, top: 40 },
             };
             const def = defaults[windowId] || { width: 500, height: 400, left: 100, top: 100 };
             const margin = 20;
