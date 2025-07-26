@@ -35,7 +35,7 @@ export class ContactFormManager {
                         ['OK']
                     );
                 } else {
-                    alert('Message sent! Thank you for contacting me.');
+                alert('Message sent! Thank you for contacting me.');
                 }
                 this.form.reset();
             } else {

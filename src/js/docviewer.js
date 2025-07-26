@@ -262,7 +262,8 @@ export class DocViewer {
 export function setupDocViewerLinks(docViewerInstance, windowManager) {
     document.querySelectorAll('a.xp-button, a.docviewer-link').forEach(link => {
         const href = link.getAttribute('href');
-        if (href && /\.(pdf|png|jpg|jpeg|gif|svg)$/i.test(href)) {
+        // Only handle PDF and image files, exclude text files (handled by notepad)
+        if (href && /\.(pdf|png|jpg|jpeg|gif|svg)$/i.test(href) && !/\.(txt|md|log|ini|cfg|conf)$/i.test(href)) {
             link.addEventListener('click', e => {
                 e.preventDefault();
                 const name = link.textContent.trim() || href.split('/').pop();

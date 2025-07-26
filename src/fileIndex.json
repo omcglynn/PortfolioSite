@@ -4,6 +4,12 @@
   "path": "",
   "children": [
     {
+      "type": "file",
+      "name": "contactinfo.txt",
+      "path": "contactinfo.txt",
+      "ext": "txt"
+    },
+    {
       "type": "folder",
       "name": "documents",
       "path": "documents",
@@ -19,6 +25,12 @@
           "name": "betabreak.pdf",
           "path": "documents/betabreak.pdf",
           "ext": "pdf"
+        },
+        {
+          "type": "file",
+          "name": "contactinfo.txt",
+          "path": "documents/contactinfo.txt",
+          "ext": "txt"
         },
         {
           "type": "file",
@@ -334,6 +346,476 @@
               "name": "window-project.png",
               "path": "images/windows/window-project.png",
               "ext": "png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "My Music",
+      "path": "My Music",
+      "children": []
+    },
+    {
+      "type": "folder",
+      "name": "My Pictures",
+      "path": "My Pictures",
+      "children": [
+        {
+          "type": "folder",
+          "name": "Adventures",
+          "path": "My Pictures/Adventures",
+          "children": [
+            {
+              "type": "folder",
+              "name": "japan24",
+              "path": "My Pictures/Adventures/japan24",
+              "children": [
+                {
+                  "type": "file",
+                  "name": "feelinLocal.txt",
+                  "path": "My Pictures/Adventures/japan24/feelinLocal.txt",
+                  "ext": "txt"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0163.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0163.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0215.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0215.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0282.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0282.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0334.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0334.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0342.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0342.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0348.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0348.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0419.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0419.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0466.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0466.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0509.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0509.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0521.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0521.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0525.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0525.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0570.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0570.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0587.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0587.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0601.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0601.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0658.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0658.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0665.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0665.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0679.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0679.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0686.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0686.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0707.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0707.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0711.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0711.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1018.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_1018.JPG",
+                  "ext": "jpg"
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "s24Roadtrip",
+              "path": "My Pictures/Adventures/s24Roadtrip",
+              "children": [
+                {
+                  "type": "file",
+                  "name": "beautifulSW.txt",
+                  "path": "My Pictures/Adventures/s24Roadtrip/beautifulSW.txt",
+                  "ext": "txt"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1495.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1495.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1500.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1500.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1509.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1509.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1518.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1518.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1533.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1533.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1547.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1547.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1553.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1553.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1558.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1558.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1571.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1571.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1576.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1576.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1589.jpg",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1589.jpg",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1591.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1591.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1601.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1601.JPG",
+                  "ext": "jpg"
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "seniorTrip23",
+              "path": "My Pictures/Adventures/seniorTrip23",
+              "children": []
+            },
+            {
+              "type": "folder",
+              "name": "w24Roadtrip",
+              "path": "My Pictures/Adventures/w24Roadtrip",
+              "children": [
+                {
+                  "type": "file",
+                  "name": "bigMess.txt",
+                  "path": "My Pictures/Adventures/w24Roadtrip/bigMess.txt",
+                  "ext": "txt"
+                },
+                {
+                  "type": "file",
+                  "name": "img1.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img1.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "img10.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img10.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "img11.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img11.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "img12.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img12.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "img2.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img2.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "img3.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img3.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "img4.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img4.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "img5.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img5.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "img6.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img6.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "img7.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img7.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "img8.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img8.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "img9.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img9.JPG",
+                  "ext": "jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "folder",
+          "name": "Baking",
+          "path": "My Pictures/Baking",
+          "children": [
+            {
+              "type": "folder",
+              "name": "culinarySchool",
+              "path": "My Pictures/Baking/culinarySchool",
+              "children": [
+                {
+                  "type": "file",
+                  "name": "Apple Tart.JPG",
+                  "path": "My Pictures/Baking/culinarySchool/Apple Tart.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Assorted Bread.jpeg",
+                  "path": "My Pictures/Baking/culinarySchool/Assorted Bread.jpeg",
+                  "ext": "jpeg"
+                },
+                {
+                  "type": "file",
+                  "name": "Baklava.JPG",
+                  "path": "My Pictures/Baking/culinarySchool/Baklava.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Creampuff_Eclair.JPG",
+                  "path": "My Pictures/Baking/culinarySchool/Creampuff_Eclair.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Creme Brûlée Pie.JPG",
+                  "path": "My Pictures/Baking/culinarySchool/Creme Brûlée Pie.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "croissants.JPG",
+                  "path": "My Pictures/Baking/culinarySchool/croissants.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Cupcakes.JPG",
+                  "path": "My Pictures/Baking/culinarySchool/Cupcakes.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Danish.JPG",
+                  "path": "My Pictures/Baking/culinarySchool/Danish.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Donuts.JPG",
+                  "path": "My Pictures/Baking/culinarySchool/Donuts.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Fruit Tarts.JPG",
+                  "path": "My Pictures/Baking/culinarySchool/Fruit Tarts.JPG",
+                  "ext": "jpg"
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "homemade",
+              "path": "My Pictures/Baking/homemade",
+              "children": [
+                {
+                  "type": "file",
+                  "name": "Alfajores.JPG",
+                  "path": "My Pictures/Baking/homemade/Alfajores.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Apple Pie.JPG",
+                  "path": "My Pictures/Baking/homemade/Apple Pie.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Challah.JPG",
+                  "path": "My Pictures/Baking/homemade/Challah.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Cream Puffs.JPG",
+                  "path": "My Pictures/Baking/homemade/Cream Puffs.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Creme Brûlée.JPG",
+                  "path": "My Pictures/Baking/homemade/Creme Brûlée.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Lemon Meringue.JPG",
+                  "path": "My Pictures/Baking/homemade/Lemon Meringue.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Macaron.JPG",
+                  "path": "My Pictures/Baking/homemade/Macaron.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "Pineapple Upside-down Cake.JPG",
+                  "path": "My Pictures/Baking/homemade/Pineapple Upside-down Cake.JPG",
+                  "ext": "jpg"
+                }
+              ]
             }
           ]
         }
