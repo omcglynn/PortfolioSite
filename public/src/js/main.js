@@ -8,6 +8,7 @@ import { ExplorerManager } from './explorer.js';
 import { XPImageViewer } from './xpImageViewer.js';
 import { QuestManager } from './questManager.js';
 import { DialogManager } from './dialogManager.js';
+import { NotepadManager, setupNotepadLinks } from './notepadManager.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Set desktop background image (XP look)
@@ -68,6 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
     docViewer: docViewer,
     borderColor: '#4A9EFF'
   });
+  const dialogManager = new DialogManager();
+  const contactFormManager = new ContactFormManager();
+  contactFormManager.setDialogManager(dialogManager);
+  const notepadManager = new NotepadManager('#window-contactinfo', windowManager);
+  
   // Recycle Bin explorer
   new ExplorerManager({
     explorerWindowId: 'window-recyclebin',
@@ -76,12 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
     forwardBtnId: 'recyclebin-forward',
     upBtnId: 'recyclebin-up',
     fileIndexPath: '/src/recycleBinIndex.json',
-    docViewer: docViewer
+    docViewer: docViewer,
+    notepadManager: notepadManager
   });
-  const explorerManager = new ExplorerManager({ docViewer });
-  const dialogManager = new DialogManager();
-  const contactFormManager = new ContactFormManager();
-  contactFormManager.setDialogManager(dialogManager);
+  const explorerManager = new ExplorerManager({ 
+    docViewer: docViewer,
+    notepadManager: notepadManager 
+  });
   const questManager = new QuestManager({
     windowId: 'window-quest',
     projectWindowIds: ['project1', 'project2', 'project3', 'project4'],
@@ -227,6 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Wire up DocViewer link interception
   setupDocViewerLinks(docViewer, windowManager);
+  
+  // Wire up Notepad link interception
+  setupNotepadLinks(notepadManager, windowManager);
 
   // Patch: Ensure DocViewer.hide() is called when the window is closed
   const docViewerWindow = document.getElementById('window-docviewer');
@@ -240,6 +250,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+
 
   // BSOD for My Network Places
   const myNetworkPlacesIcon = Array.from(document.querySelectorAll('.desktop-icon')).find(icon => {

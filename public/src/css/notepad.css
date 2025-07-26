@@ -1,0 +1,93 @@
+/* Notepad Tab Styles */
+
+#notepad-tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: #f3f3f3;
+  border-bottom: 1px solid #b5b5b5;
+  min-height: 30px;
+}
+.notepad-tab {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 30px;
+  border-right: 1px solid #b5b5b5;
+  background: #eaeaea;
+  cursor: pointer;
+  font-family: 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+  font-size: 15px;
+  color: #222;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.notepad-tab.active {
+  background: #fff;
+  font-weight: bold;
+  color: #1a237e;
+}
+.notepad-tab-close {
+  margin-left: 8px;
+  color: #888;
+  font-size: 18px;
+  cursor: pointer;
+}
+.notepad-tab:not(.notepad-add-tab):hover {
+  background: #e0e0e0;
+}
+.notepad-add-tab {
+  background: #d0d0d0;
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  border-right: 1px solid #b5b5b5;
+  cursor: pointer;
+  min-width: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.notepad-content {
+    margin: 0;
+    font-family: 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+    font-size: 1.4em !important;
+    line-height: 1.4;
+    color: #222;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding: 8px;
+}
+
+.notepad-textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-family: 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+    font-size: 1em !important;
+    line-height: 1.4;
+    color: #222;
+    background: white;
+    resize: none;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.notepad-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #999;
+    font-style: italic;
+    font-family: 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+}
+
+.notepad-error {
+    padding: 16px;
+    color: #d32f2f;
+    font-family: 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+    font-size: 1em;
+    line-height: 1.4;
+} 
