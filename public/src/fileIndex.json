@@ -28,6 +28,12 @@
         },
         {
           "type": "file",
+          "name": "contactinfo.txt",
+          "path": "documents/contactinfo.txt",
+          "ext": "txt"
+        },
+        {
+          "type": "file",
           "name": "cyberResearchPaper.pdf",
           "path": "documents/cyberResearchPaper.pdf",
           "ext": "pdf"
@@ -365,7 +371,231 @@
               "type": "folder",
               "name": "japan24",
               "path": "My Pictures/Adventures/japan24",
-              "children": []
+              "children": [
+                {
+                  "type": "file",
+                  "name": "feelinLocal.txt",
+                  "path": "My Pictures/Adventures/japan24/feelinLocal.txt",
+                  "ext": "txt"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0163.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0163.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0215.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0215.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0282.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0282.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0334.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0334.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0342.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0342.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0348.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0348.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0419.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0419.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0466.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0466.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0509.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0509.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0521.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0521.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0525.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0525.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0570.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0570.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0587.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0587.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0601.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0601.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0658.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0658.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0665.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0665.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0679.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0679.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0686.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0686.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0707.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0707.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_0711.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_0711.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1018.JPG",
+                  "path": "My Pictures/Adventures/japan24/IMG_1018.JPG",
+                  "ext": "jpg"
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "s24Roadtrip",
+              "path": "My Pictures/Adventures/s24Roadtrip",
+              "children": [
+                {
+                  "type": "file",
+                  "name": "beautifulSW.txt",
+                  "path": "My Pictures/Adventures/s24Roadtrip/beautifulSW.txt",
+                  "ext": "txt"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1495.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1495.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1500.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1500.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1509.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1509.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1518.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1518.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1533.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1533.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1547.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1547.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1553.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1553.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1558.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1558.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1571.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1571.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1576.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1576.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1589.jpg",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1589.jpg",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1591.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1591.JPG",
+                  "ext": "jpg"
+                },
+                {
+                  "type": "file",
+                  "name": "IMG_1601.JPG",
+                  "path": "My Pictures/Adventures/s24Roadtrip/IMG_1601.JPG",
+                  "ext": "jpg"
+                }
+              ]
             },
             {
               "type": "folder",
@@ -375,176 +605,85 @@
             },
             {
               "type": "folder",
-              "name": "spring24Roadtrip",
-              "path": "My Pictures/Adventures/spring24Roadtrip",
+              "name": "w24Roadtrip",
+              "path": "My Pictures/Adventures/w24Roadtrip",
               "children": [
                 {
                   "type": "file",
-                  "name": "description.txt",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/description.txt",
-                  "ext": "txt"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1495.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1495.JPG",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1500.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1500.JPG",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1509.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1509.JPG",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1518.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1518.JPG",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1533.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1533.JPG",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1547.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1547.JPG",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1553.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1553.JPG",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1558.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1558.JPG",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1571.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1571.JPG",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1576.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1576.JPG",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1589.jpg",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1589.jpg",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1591.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1591.JPG",
-                  "ext": "jpg"
-                },
-                {
-                  "type": "file",
-                  "name": "IMG_1601.JPG",
-                  "path": "My Pictures/Adventures/spring24Roadtrip/IMG_1601.JPG",
-                  "ext": "jpg"
-                }
-              ]
-            },
-            {
-              "type": "folder",
-              "name": "winter24Roadtrip",
-              "path": "My Pictures/Adventures/winter24Roadtrip",
-              "children": [
-                {
-                  "type": "file",
-                  "name": "description.txt",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/description.txt",
+                  "name": "bigMess.txt",
+                  "path": "My Pictures/Adventures/w24Roadtrip/bigMess.txt",
                   "ext": "txt"
                 },
                 {
                   "type": "file",
                   "name": "img1.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img1.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img1.JPG",
                   "ext": "jpg"
                 },
                 {
                   "type": "file",
                   "name": "img10.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img10.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img10.JPG",
                   "ext": "jpg"
                 },
                 {
                   "type": "file",
                   "name": "img11.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img11.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img11.JPG",
                   "ext": "jpg"
                 },
                 {
                   "type": "file",
                   "name": "img12.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img12.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img12.JPG",
                   "ext": "jpg"
                 },
                 {
                   "type": "file",
                   "name": "img2.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img2.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img2.JPG",
                   "ext": "jpg"
                 },
                 {
                   "type": "file",
                   "name": "img3.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img3.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img3.JPG",
                   "ext": "jpg"
                 },
                 {
                   "type": "file",
                   "name": "img4.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img4.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img4.JPG",
                   "ext": "jpg"
                 },
                 {
                   "type": "file",
                   "name": "img5.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img5.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img5.JPG",
                   "ext": "jpg"
                 },
                 {
                   "type": "file",
                   "name": "img6.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img6.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img6.JPG",
                   "ext": "jpg"
                 },
                 {
                   "type": "file",
                   "name": "img7.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img7.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img7.JPG",
                   "ext": "jpg"
                 },
                 {
                   "type": "file",
                   "name": "img8.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img8.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img8.JPG",
                   "ext": "jpg"
                 },
                 {
                   "type": "file",
                   "name": "img9.JPG",
-                  "path": "My Pictures/Adventures/winter24Roadtrip/img9.JPG",
+                  "path": "My Pictures/Adventures/w24Roadtrip/img9.JPG",
                   "ext": "jpg"
                 }
               ]

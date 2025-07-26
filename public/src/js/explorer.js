@@ -105,7 +105,13 @@ export class ExplorerManager {
     const grid = document.createElement('div');
     grid.className = 'explorer-grid';
     
-    node.children.forEach(item => {
+    // Sort children alphabetically
+    const sortedChildren = node.children.sort((a, b) => {
+      // Natural sort for numbers (1, 2, 11 instead of 1, 11, 2)
+      return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' });
+    });
+    
+    sortedChildren.forEach(item => {
       const iconDiv = document.createElement('div');
       iconDiv.className = 'explorer-grid-item';
       iconDiv.tabIndex = 0;
@@ -115,7 +121,14 @@ export class ExplorerManager {
       if (item.type === 'folder') {
         iconImg = document.createElement('div');
         iconImg.className = 'explorer-grid-icon';
-        iconImg.style.backgroundImage = "url('/assets/images/icons/my-documents.png')";
+        // Use specific icons for My Pictures and My Music folders
+        if (item.name === 'My Pictures') {
+          iconImg.style.backgroundImage = "url('/assets/images/icons/myPics.png')";
+        } else if (item.name === 'My Music') {
+          iconImg.style.backgroundImage = "url('/assets/images/icons/myMusic.png')";
+        } else {
+          iconImg.style.backgroundImage = "url('/assets/images/icons/my-documents.png')";
+        }
       } else if (["png","jpg","jpeg","gif","svg"].includes(item.ext)) {
         iconImg = document.createElement('img');
         iconImg.className = 'explorer-grid-icon explorer-grid-thumb';
