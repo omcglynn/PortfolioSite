@@ -2,11 +2,12 @@
 // Handles text file viewing in the notepad window
 
 export class NotepadManager {
-    constructor(windowSelector = '#window-contactinfo', windowManager = null) {
+    constructor(windowSelector = '#window-contactinfo', windowManager = null, docViewer = null) {
         this.window = document.querySelector(windowSelector);
         this.tabsContainer = this.window ? this.window.querySelector('#notepad-tabs') : null;
         this.contentContainer = this.window ? this.window.querySelector('#notepad-content') : null;
         this.windowManager = windowManager;
+        this.docViewer = docViewer;
         this.tabs = [];
         this.activeTab = null;
         this.setupEvents();
@@ -149,18 +150,31 @@ export class NotepadManager {
         }
         if (!this.activeTab.url) {
             if (this.activeTab.isDefault) {
-                // Default contact info tab
-                this.contentContainer.innerHTML = `
-                    <pre class="notepad-content">
-Email: oemcgl@gmail.com
-Phone: (913) 424-2420
-Home Locale: Overland Park, KS
-School Locale: Amherst, MA
-
-LinkedIn: linkedin.com/in/owen-mcglynn-1063ba257
-GitHub: github.com/omcglynn
-                    </pre>
-                `;
+                // Load contact info from file instead of hardcoding
+                fetch('/assets/documents/contactinfo.txt')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(text => {
+                        // Parse as markdown since it contains HTML links
+                        const formattedText = this.parseMarkdown(text);
+                        this.contentContainer.innerHTML = `
+                            <div class="notepad-content notepad-markdown">${formattedText}</div>
+                        `;
+                        this.setupLinkInterception();
+                    })
+                    .catch(error => {
+                        console.error('Error loading contact info:', error);
+                        this.contentContainer.innerHTML = `
+                            <div class="notepad-error">
+                                Error loading contact info<br>
+                                ${error.message}
+                            </div>
+                        `;
+                    });
             } else {
                 // REMOVE: New tab - show empty editor
                 this.contentContainer.innerHTML = '<div class="notepad-empty">No file open</div>';
@@ -176,9 +190,28 @@ GitHub: github.com/omcglynn
                 return response.text();
             })
             .then(text => {
-                this.contentContainer.innerHTML = `
-                    <pre class="notepad-content">${this.escapeHtml(text)}</pre>
-                `;
+                // Check if file has markdown extension or contains markdown/HTML indicators
+                const isMarkdown = this.activeTab.ext === 'md' || 
+                    text.trim().startsWith('#') || 
+                    text.includes('**') || 
+                    text.includes('*[') ||
+                    text.includes('<a href') ||
+                    text.includes('<strong>') ||
+                    text.includes('<em>');
+                
+                if (isMarkdown) {
+                    // Parse markdown for basic formatting
+                    const formattedText = this.parseMarkdown(text);
+                    this.contentContainer.innerHTML = `
+                        <div class="notepad-content notepad-markdown">${formattedText}</div>
+                    `;
+                    this.setupLinkInterception();
+                } else {
+                    // Regular text file - escape HTML
+                    this.contentContainer.innerHTML = `
+                        <pre class="notepad-content">${this.escapeHtml(text)}</pre>
+                    `;
+                }
             })
             .catch(error => {
                 console.error('Error loading text file:', error);
@@ -189,6 +222,59 @@ GitHub: github.com/omcglynn
                     </div>
                 `;
             });
+    }
+
+    setupLinkInterception() {
+        if (!this.contentContainer) return;
+        
+        // Find all links in the content
+        const links = this.contentContainer.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                
+                if (!href) return;
+                
+                // Fix path formatting (convert backslashes to forward slashes)
+                let fixedHref = href.replace(/\\/g, '/');
+                
+                // Check if it's a local asset that should open in docviewer
+                if ((fixedHref.startsWith('/assets/') || fixedHref.startsWith('assets/')) && this.docViewer) {
+                    // Ensure it starts with /assets/
+                    if (!fixedHref.startsWith('/')) {
+                        fixedHref = '/' + fixedHref;
+                    }
+                    
+                    // Extract filename for display
+                    const filename = fixedHref.split('/').pop();
+                    this.docViewer.openDoc(fixedHref, filename);
+                } else if (link.classList.contains('docviewer-link') && this.docViewer) {
+                    // Handle docviewer-link class specifically
+                    const filename = fixedHref.split('/').pop() || fixedHref.split('\\').pop();
+                    this.docViewer.openDoc(fixedHref, filename);
+                } else {
+                    // External links open in new tab
+                    window.open(href, '_blank');
+                }
+            });
+        });
+    }
+
+    parseMarkdown(text) {
+        // Parse markdown formatting while preserving existing HTML
+        return text
+            // Bold text: **text** -> <strong>text</strong>
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            // Italic text: *text* -> <em>text</em>
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            // Headers: # Header -> <h3>Header</h3>
+            .replace(/^# (.*$)/gm, '<h3>$1</h3>')
+            .replace(/^## (.*$)/gm, '<h4>$1</h4>')
+            // Links: [text](url) -> <a href="url">text</a>
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+            // Line breaks
+            .replace(/\n/g, '<br>');
     }
 
     renderError(errorMessage) {
