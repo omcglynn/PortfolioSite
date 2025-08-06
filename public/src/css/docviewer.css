@@ -8,8 +8,58 @@
 
 #docviewer-tabs {
     display: flex;
+    flex-wrap: nowrap;
     border-bottom: 1px solid #b5b5b5;
     background: #e5e5e5;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #b5b5b5 #e5e5e5;
+}
+
+/* Custom scrollbar styling for webkit browsers */
+#docviewer-tabs::-webkit-scrollbar {
+    height: 8px;
+}
+
+#docviewer-tabs::-webkit-scrollbar-track {
+    background: #e5e5e5;
+}
+
+#docviewer-tabs::-webkit-scrollbar-thumb {
+    background: #b5b5b5;
+    border-radius: 4px;
+}
+
+#docviewer-tabs::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+.docviewer-tab {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 30px;
+    border-right: 1px solid #b5b5b5;
+    background: #eaeaea;
+    cursor: pointer;
+    font-family: 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+    font-size: 15px;
+    color: #222;
+    white-space: nowrap;
+    transition: background 0.2s;
+    flex-shrink: 0;
+    min-width: fit-content;
+}
+
+.docviewer-tab.active {
+    background: #fff;
+    font-weight: bold;
+    color: #1a237e;
+}
+
+.docviewer-tab:hover {
+    background: #e0e0e0;
 }
 
 #docviewer-toolbar {

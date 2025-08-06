@@ -5,9 +5,9 @@
   "children": [
     {
       "type": "file",
-      "name": "contactinfo.txt",
-      "path": "contactinfo.txt",
-      "ext": "txt"
+      "name": "contactinfo.md",
+      "path": "contactinfo.md",
+      "ext": "md"
     },
     {
       "type": "folder",
@@ -355,7 +355,14 @@
       "type": "folder",
       "name": "My Music",
       "path": "My Music",
-      "children": []
+      "children": [
+        {
+          "type": "file",
+          "name": ".inProgress.png",
+          "path": "My Music/.inProgress.png",
+          "ext": "png"
+        }
+      ]
     },
     {
       "type": "folder",
@@ -374,9 +381,15 @@
               "children": [
                 {
                   "type": "file",
-                  "name": "feelinLocal.txt",
-                  "path": "My Pictures/Adventures/japan24/feelinLocal.txt",
-                  "ext": "txt"
+                  "name": ".inProgress.png",
+                  "path": "My Pictures/Adventures/japan24/.inProgress.png",
+                  "ext": "png"
+                },
+                {
+                  "type": "file",
+                  "name": "feelinLocal.md",
+                  "path": "My Pictures/Adventures/japan24/feelinLocal.md",
+                  "ext": "md"
                 },
                 {
                   "type": "file",
@@ -601,7 +614,14 @@
               "type": "folder",
               "name": "seniorTrip23",
               "path": "My Pictures/Adventures/seniorTrip23",
-              "children": []
+              "children": [
+                {
+                  "type": "file",
+                  "name": ".inProgress.png",
+                  "path": "My Pictures/Adventures/seniorTrip23/.inProgress.png",
+                  "ext": "png"
+                }
+              ]
             },
             {
               "type": "folder",
@@ -610,9 +630,9 @@
               "children": [
                 {
                   "type": "file",
-                  "name": "bigMess.txt",
-                  "path": "My Pictures/Adventures/w24Roadtrip/bigMess.txt",
-                  "ext": "txt"
+                  "name": "bigMess.md",
+                  "path": "My Pictures/Adventures/w24Roadtrip/bigMess.md",
+                  "ext": "md"
                 },
                 {
                   "type": "file",

@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const dialogManager = new DialogManager();
   const contactFormManager = new ContactFormManager();
   contactFormManager.setDialogManager(dialogManager);
-  const notepadManager = new NotepadManager('#window-contactinfo', windowManager);
+  const notepadManager = new NotepadManager('#window-contactinfo', windowManager, docViewer);
   
   // Recycle Bin explorer
   new ExplorerManager({
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let zOrder = [];
     try {
       const savedOrder = localStorage.getItem('xp-window-zorder');
-      zOrder = savedOrder ? JSON.parse(savedOrder) : [];
+      zOrder = savedOrder ? JSON.parse(savedOrder) : ['quest', 'about', 'contact'];
     } catch (e) {
       zOrder = [];
     }
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         shouldOpen = state.open;
         shouldMinimize = state.minimized || false;
       } else {
-        shouldOpen = (winId === 'about' || winId === 'contact');
+        shouldOpen = (winId === "quest" || winId === 'about' || winId === 'contact');
         shouldMinimize = false;
       }
       if (shouldOpen) {
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         shouldOpen = state.open;
         shouldMinimize = state.minimized || false;
       } else {
-        shouldOpen = (winId === 'about' || winId === 'contact');
+        shouldOpen = (winId === "quest" || winId === 'about' || winId === 'contact' );
         shouldMinimize = false;
       }
       if (shouldOpen) {

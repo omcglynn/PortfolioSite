@@ -3,11 +3,35 @@
 #notepad-tabs {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   align-items: stretch;
   background: #f3f3f3;
   border-bottom: 1px solid #b5b5b5;
   min-height: 30px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #b5b5b5 #f3f3f3;
 }
+
+/* Custom scrollbar styling for webkit browsers */
+#notepad-tabs::-webkit-scrollbar {
+  height: 8px;
+}
+
+#notepad-tabs::-webkit-scrollbar-track {
+  background: #f3f3f3;
+}
+
+#notepad-tabs::-webkit-scrollbar-thumb {
+  background: #b5b5b5;
+  border-radius: 4px;
+}
+
+#notepad-tabs::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
 .notepad-tab {
   display: flex;
   align-items: center;
@@ -21,6 +45,8 @@
   color: #222;
   white-space: nowrap;
   transition: background 0.2s;
+  flex-shrink: 0;
+  min-width: fit-content;
 }
 .notepad-tab.active {
   background: #fff;
@@ -57,6 +83,50 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     padding: 8px;
+}
+
+/* Markdown content styling */
+.notepad-markdown {
+    white-space: normal !important;
+}
+
+.notepad-markdown h3 {
+    font-family: 'MSTahomaBold8px', 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #1a237e;
+    margin: 16px 0 8px 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+}
+
+.notepad-markdown h4 {
+    font-family: 'MSTahomaBold8px', 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin: 12px 0 6px 0;
+}
+
+.notepad-markdown strong {
+    font-family: 'MSTahomaBold8px', 'FSTahoma8px', 'Tahoma', 'MS Sans Serif', sans-serif;
+    font-weight: bold;
+    color: #1a237e;
+}
+
+.notepad-markdown em {
+    font-style: italic;
+    color: #555;
+}
+
+.notepad-markdown a {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+.notepad-markdown a:hover {
+    color: #003366;
+    text-decoration: none;
 }
 
 .notepad-textarea {
